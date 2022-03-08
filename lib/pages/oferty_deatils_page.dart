@@ -49,13 +49,11 @@ class OfertyDetailsPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.fitHeight,
-                ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                image,
+                fit: BoxFit.fitHeight,
               ),
             ),
           ],
