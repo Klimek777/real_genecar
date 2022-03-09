@@ -137,74 +137,80 @@ class OfertyCellWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Colors.yellow[600]!,
-                                    Colors.yellow[700]!
-                                  ]),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(8),
-                              ),
-                              color: Colors.yellow[600]),
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          height: 30,
-                          width: 50,
+                        Flexible(
                           child: Container(
-                            alignment: Alignment.center,
-                            child: ClipRRect(child: Icon(Icons.call)),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topRight,
+                                    end: Alignment.bottomLeft,
+                                    colors: [
+                                      Colors.yellow[600]!,
+                                      Colors.yellow[700]!
+                                    ]),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                color: Colors.yellow[600]),
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            height: 30,
+                            width: 50,
+                            child: Container(
+                              alignment: Alignment.center,
+                              child: ClipRRect(child: Icon(Icons.call)),
+                            ),
                           ),
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Colors.yellow[600]!,
-                                    Colors.yellow[700]!
-                                  ]),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(8),
-                              ),
-                              color: Colors.yellow[600]),
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          height: 30,
-                          width: 50,
+                        Flexible(
                           child: Container(
-                            alignment: Alignment.center,
-                            child: ClipRRect(child: Icon(Icons.message)),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topRight,
+                                    end: Alignment.bottomLeft,
+                                    colors: [
+                                      Colors.yellow[600]!,
+                                      Colors.yellow[700]!
+                                    ]),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                color: Colors.yellow[600]),
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            height: 30,
+                            width: 50,
+                            child: Container(
+                              alignment: Alignment.center,
+                              child: ClipRRect(child: Icon(Icons.message)),
+                            ),
                           ),
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Colors.yellow[600]!,
-                                    Colors.yellow[700]!
-                                  ]),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(8),
-                              ),
-                              color: Colors.yellow[600]),
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          height: 30,
-                          width: 50,
+                        Flexible(
                           child: Container(
-                            alignment: Alignment.center,
-                            child: ClipRRect(
-                                child: Icon(Icons.star_border_outlined)),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topRight,
+                                    end: Alignment.bottomLeft,
+                                    colors: [
+                                      Colors.yellow[600]!,
+                                      Colors.yellow[700]!
+                                    ]),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                color: Colors.yellow[600]),
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            height: 30,
+                            width: 50,
+                            child: Container(
+                              alignment: Alignment.center,
+                              child: ClipRRect(
+                                  child: Icon(Icons.star_border_outlined)),
+                            ),
                           ),
                         ),
                       ],

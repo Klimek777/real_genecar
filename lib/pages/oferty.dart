@@ -221,6 +221,7 @@ class _OfertyState extends State<Oferty> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -233,6 +234,10 @@ class _OfertyState extends State<Oferty> {
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Ulubione',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.my_library_add),
+            label: 'Moje oferty ',
           ),
         ],
         selectedItemColor: Colors.yellow[600],
