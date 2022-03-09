@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		nvgowaHeAcCXtqcd43rM3dRs+2E=
+		i2PWcIs+2Cgx9AbS3S7PaHtSQRw=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -56,6 +56,10 @@
 		<data>
 		xYcyva21OU+RrWAGyI8r03hfU2c=
 		</data>
+		<key>flutter_assets/assets/logo_zmien.png</key>
+		<data>
+		cOgZLQGXWwcbvasCsyZe6sjWlfw=
+		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
 		33xe6rFwPlxRnZOgZWsODADpUI4=
@@ -70,7 +74,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		glSIsdgdiTKtxmjLKBWmin3P+8k=
+		ZTPaGWPU3EqbLkZo5ulyFGxRMdw=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -87,7 +91,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8Kfh14tgFG9jVekQddGxpZrlAwFjEL64JQtYjwWyl84=
+			mnHzcErLHv7lgBAUOEGrQqGPOt4ThE6FSwUxeiA6Zag=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -167,6 +171,13 @@
 			eIIzFrLKZ3ZVaNKqa9RPJ6jJOydfg8VureHEzoJNP7s=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/logo_zmien.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6uFFclfnK99ydU3E+HID2m1bph6ygRLCCfID5JlrdXQ=
+			</data>
+		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<dict>
 			<key>hash2</key>
@@ -192,7 +203,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xhQwNJ5Gc7ohoOAMw7rtPlwzuIw4irKBHWn/bpF8fUA=
+			UoRKQJr6fcM+AUeQiOP3dpikXg7I23BrZQQfXRFIv8g=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

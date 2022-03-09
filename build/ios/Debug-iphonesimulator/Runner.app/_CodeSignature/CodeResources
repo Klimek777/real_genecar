@@ -82,7 +82,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		yFuYrdZyKbP6EDm/b568A5ygeZ4=
+		OzXL36OcrHEyimNXnyPgDiZ6c4k=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		L8F7FR5nzGKd6JimZpRGQeI/+qE=
+		dPjhS8P4UOlo3w+CeusEJf7zqKI=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -118,11 +118,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		y6gN/sxcE3zSBWNoBdq6os9XP8Y=
+		K8y68Geo5MfYD/9DMDXELXw9Ywk=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		nvgowaHeAcCXtqcd43rM3dRs+2E=
+		i2PWcIs+2Cgx9AbS3S7PaHtSQRw=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -168,6 +168,10 @@
 		<data>
 		xYcyva21OU+RrWAGyI8r03hfU2c=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/logo_zmien.png</key>
+		<data>
+		cOgZLQGXWwcbvasCsyZe6sjWlfw=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
 		33xe6rFwPlxRnZOgZWsODADpUI4=
@@ -182,7 +186,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		glSIsdgdiTKtxmjLKBWmin3P+8k=
+		ZTPaGWPU3EqbLkZo5ulyFGxRMdw=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -424,7 +428,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			X1g3Km0ZYmIIJ148BqNjGzFarsrZqMkq2YZWlOae5EI=
+			dQzqLGUhiaxiHaZ1/IMVioaUhqwWzX19aK4K4aJWvts=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -473,7 +477,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+NjqBAbpGB676P0Yr1X7Q2eH8qdE5v3EyvD1ElN8kqI=
+			WemxbJYHZDP9vT5U44hiqkNmAyJcSqkoc2wI7CuAHl4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -487,14 +491,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LehfVePpTYsQjy9cjWJHP4+XzYkzCpC8ETuJLxPujaE=
+			RgSJI9ePY4VVA+q/dw/F1WQ7TGIgDEcXYP/VDNTTdMQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8Kfh14tgFG9jVekQddGxpZrlAwFjEL64JQtYjwWyl84=
+			mnHzcErLHv7lgBAUOEGrQqGPOt4ThE6FSwUxeiA6Zag=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -574,6 +578,13 @@
 			eIIzFrLKZ3ZVaNKqa9RPJ6jJOydfg8VureHEzoJNP7s=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/logo_zmien.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6uFFclfnK99ydU3E+HID2m1bph6ygRLCCfID5JlrdXQ=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<dict>
 			<key>hash2</key>
@@ -599,7 +610,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xhQwNJ5Gc7ohoOAMw7rtPlwzuIw4irKBHWn/bpF8fUA=
+			UoRKQJr6fcM+AUeQiOP3dpikXg7I23BrZQQfXRFIv8g=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

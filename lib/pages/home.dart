@@ -19,36 +19,43 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
           Widget>[
-        Center(
-          child: Image(
-            width: 250.0,
-            height: 250.0,
-            image: AssetImage('assets/logo_car.png'),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+          child: Center(
+            child: Image(
+              width: MediaQuery.of(context).size.height * 0.25,
+              height: MediaQuery.of(context).size.height * 0.25,
+              image: AssetImage('assets/logo_zmien.png'),
+            ),
           ),
         ),
         Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Get',
-                style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                'New',
-                style: TextStyle(
-                    fontSize: 50.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.yellow[600]),
-              ),
-              Text(
-                'Car',
-                style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.w400),
-              )
-            ],
+          child: Text(
+            'Get',
+            style: TextStyle(
+                fontSize: MediaQuery.of(context).size.height * 0.05,
+                fontWeight: FontWeight.w400),
+            textAlign: TextAlign.center,
           ),
         ),
-        SizedBox(height: 30.0),
+        Center(
+          child: Text(
+            'New',
+            style: TextStyle(
+                fontSize: MediaQuery.of(context).size.height * 0.06,
+                fontWeight: FontWeight.bold,
+                color: Colors.yellow[600]),
+          ),
+        ),
+        Center(
+          child: Text(
+            'Car',
+            style: TextStyle(
+                fontSize: MediaQuery.of(context).size.height * 0.05,
+                fontWeight: FontWeight.w400),
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.08),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -67,13 +74,13 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                         color: Colors.grey[50],
                         fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
+                        fontSize: MediaQuery.of(context).size.height * 0.025,
                       ),
                     ),
                   ],
                 ),
-                height: 100,
-                width: 130,
+                height: MediaQuery.of(context).size.height * 0.12,
+                width: MediaQuery.of(context).size.height * 0.16,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.topRight,
@@ -109,13 +116,13 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                         color: Colors.grey[50],
                         fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
+                        fontSize: MediaQuery.of(context).size.height * 0.025,
                       ),
                     ),
                   ],
                 ),
-                height: 100,
-                width: 130,
+                height: MediaQuery.of(context).size.height * 0.12,
+                width: MediaQuery.of(context).size.height * 0.16,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.topRight,
@@ -156,13 +163,13 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                         color: Colors.grey[50],
                         fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
+                        fontSize: MediaQuery.of(context).size.height * 0.025,
                       ),
                     ),
                   ],
                 ),
-                height: 100,
-                width: 130,
+                height: MediaQuery.of(context).size.height * 0.12,
+                width: MediaQuery.of(context).size.height * 0.16,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.topRight,
@@ -198,13 +205,13 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                         color: Colors.grey[50],
                         fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
+                        fontSize: MediaQuery.of(context).size.height * 0.025,
                       ),
                     ),
                   ],
                 ),
-                height: 100,
-                width: 130,
+                height: MediaQuery.of(context).size.height * 0.12,
+                width: MediaQuery.of(context).size.height * 0.16,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.topRight,
@@ -224,29 +231,33 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        const SizedBox(
-          height: 50.0,
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.01,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Masz juz konto?',
-              style: TextStyle(fontSize: 16.5, fontWeight: FontWeight.w400),
-            ),
-            TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => login_page()));
-                },
-                child: Text(
-                  'Zaloguj!',
-                  style: TextStyle(
-                      fontSize: 16.5,
-                      color: Colors.yellow[600],
-                      fontWeight: FontWeight.bold),
-                ))
-          ],
+        SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Masz juz konto?',
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                    fontWeight: FontWeight.w400),
+              ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => login_page()));
+                  },
+                  child: Text(
+                    'Zaloguj!',
+                    style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        color: Colors.yellow[600],
+                        fontWeight: FontWeight.bold),
+                  ))
+            ],
+          ),
         )
       ]),
     );
