@@ -7,12 +7,15 @@ class OfertyDetailsPage extends StatelessWidget {
   final String firma;
   final String model;
   final String cena;
-  OfertyDetailsPage(
-      {required this.title,
-      required this.image,
-      required this.firma,
-      required this.model,
-      required this.cena});
+  final String opis;
+  OfertyDetailsPage({
+    required this.title,
+    required this.image,
+    required this.firma,
+    required this.model,
+    required this.cena,
+    required this.opis,
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,8 +53,8 @@ class OfertyDetailsPage extends StatelessWidget {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.only(
-                          topLeft: const Radius.circular(20.0),
-                          topRight: const Radius.circular(20.0),
+                          topLeft: const Radius.circular(10.0),
+                          topRight: const Radius.circular(10.0),
                         ),
                         child: Image.asset(
                           image,
@@ -63,7 +66,6 @@ class OfertyDetailsPage extends StatelessWidget {
                   Positioned(
                     bottom: -970,
                     child: Container(
-                      alignment: Alignment.topLeft,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: Colors.white),
@@ -73,10 +75,46 @@ class OfertyDetailsPage extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.fromLTRB(20, 20, 0, 5),
-                            child: Text("$title",
-                                textAlign: TextAlign.start,
+                            child: Container(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "$title",
+                                textAlign: TextAlign.left,
                                 style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                            child: Container(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  cena,
+                                  style: TextStyle(
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.025),
+                                )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(opis),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20, 10, 0, 5),
+                            child: Container(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                'Zdjęcia',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.025),
+                              ),
+                            ),
                           ),
                         ],
                       ),

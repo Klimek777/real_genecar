@@ -207,6 +207,7 @@ class _OfertyState extends State<Oferty> {
                           firma: post.firma,
                           model: post.model,
                           cena: post.cena,
+                          opis: post.opis,
                         ),
                       ));
                     },
