@@ -158,7 +158,7 @@ class _OfertyState extends State<Oferty> {
                 'Popularne Marki',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 25,
+                  fontSize: 20,
                   letterSpacing: 2,
                 ),
               ),
@@ -175,7 +175,7 @@ class _OfertyState extends State<Oferty> {
                           blurRadius: 3.0,
                           color: Colors.grey[600]!),
                     ],
-                    fontSize: 20,
+                    fontSize: 18,
                     letterSpacing: 2,
                     fontWeight: FontWeight.w900,
                     color: Colors.black),
@@ -183,7 +183,7 @@ class _OfertyState extends State<Oferty> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 5,
             ),
             Expanded(
               child: ListView.separated(
