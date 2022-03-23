@@ -30,116 +30,135 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Center(
-          child: Text(
-            'Get',
-            style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height * 0.05,
-                fontWeight: FontWeight.w400),
-            textAlign: TextAlign.center,
+          child: RichText(
+            text: TextSpan(
+              text: 'Get',
+              style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.05,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
+                  fontFamily: 'Montserrat'),
+            ),
           ),
         ),
         Center(
-          child: Text(
-            'New',
-            style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height * 0.06,
-                fontWeight: FontWeight.bold,
-                color: Colors.yellow[600]),
+          child: RichText(
+            text: TextSpan(
+              text: 'New',
+              style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.06,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.yellow[600],
+                  fontFamily: 'Montserrat'),
+            ),
           ),
         ),
         Center(
-          child: Text(
-            'Car',
-            style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height * 0.05,
-                fontWeight: FontWeight.w400),
+          child: RichText(
+            text: TextSpan(
+              text: 'Car',
+              style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.05,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
+                  fontFamily: 'Montserrat'),
+            ),
           ),
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.08),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => Search_car()));
-              },
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Znajdz Auto',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.grey[50],
-                        fontWeight: FontWeight.bold,
-                        fontSize: MediaQuery.of(context).size.height * 0.025,
+            Flexible(
+              child: TextButton(
+                style: ButtonStyle(splashFactory: NoSplash.splashFactory),
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => Search_car()));
+                },
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          text: 'Znajdz Auto',
+                          style: TextStyle(
+                              color: Colors.grey[50],
+                              fontWeight: FontWeight.bold,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.025,
+                              fontFamily: 'Montserrat'),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                  height: MediaQuery.of(context).size.height * 0.12,
+                  width: MediaQuery.of(context).size.height * 0.16,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 4,
+                          blurRadius: 10,
+                          offset: Offset(0, 3),
+                        )
+                      ]),
                 ),
-                height: MediaQuery.of(context).size.height * 0.12,
-                width: MediaQuery.of(context).size.height * 0.16,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 4,
-                        blurRadius: 10,
-                        offset: Offset(0, 3),
-                      )
-                    ]),
               ),
             ),
             SizedBox(width: 10.0),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Blog()));
-              },
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Blog',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.grey[50],
-                        fontWeight: FontWeight.bold,
-                        fontSize: MediaQuery.of(context).size.height * 0.025,
+            Flexible(
+              child: TextButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Blog()));
+                },
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          text: 'Blog',
+                          style: TextStyle(
+                              color: Colors.grey[50],
+                              fontWeight: FontWeight.bold,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.025,
+                              fontFamily: 'Montserrat'),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                  height: MediaQuery.of(context).size.height * 0.12,
+                  width: MediaQuery.of(context).size.height * 0.16,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 4,
+                          blurRadius: 10,
+                          offset: Offset(0, 3),
+                        )
+                      ]),
                 ),
-                height: MediaQuery.of(context).size.height * 0.12,
-                width: MediaQuery.of(context).size.height * 0.16,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 4,
-                        blurRadius: 10,
-                        offset: Offset(0, 3),
-                      )
-                    ]),
               ),
             ),
           ],
@@ -148,85 +167,94 @@ class _HomePageState extends State<HomePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Oferty()));
-              },
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Oferty',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.grey[50],
-                        fontWeight: FontWeight.bold,
-                        fontSize: MediaQuery.of(context).size.height * 0.025,
+            Flexible(
+              child: TextButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Oferty()));
+                },
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          text: 'Oferty',
+                          style: TextStyle(
+                              color: Colors.grey[50],
+                              fontWeight: FontWeight.bold,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.025,
+                              fontFamily: 'Montserrat'),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                  height: MediaQuery.of(context).size.height * 0.12,
+                  width: MediaQuery.of(context).size.height * 0.16,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 4,
+                          blurRadius: 10,
+                          offset: Offset(0, 3),
+                        )
+                      ]),
                 ),
-                height: MediaQuery.of(context).size.height * 0.12,
-                width: MediaQuery.of(context).size.height * 0.16,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 4,
-                        blurRadius: 10,
-                        offset: Offset(0, 3),
-                      )
-                    ]),
               ),
             ),
             SizedBox(width: 10.0),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Uslugi()));
-              },
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Usługi',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.grey[50],
-                        fontWeight: FontWeight.bold,
-                        fontSize: MediaQuery.of(context).size.height * 0.025,
+            Flexible(
+              child: TextButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Uslugi()));
+                },
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          text: 'Usługi',
+                          style: TextStyle(
+                            color: Colors.grey[50],
+                            fontWeight: FontWeight.bold,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.025,
+                            fontFamily: 'Montserrat',
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                  height: MediaQuery.of(context).size.height * 0.12,
+                  width: MediaQuery.of(context).size.height * 0.16,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 4,
+                          blurRadius: 10,
+                          offset: Offset(0, 3),
+                        )
+                      ]),
                 ),
-                height: MediaQuery.of(context).size.height * 0.12,
-                width: MediaQuery.of(context).size.height * 0.16,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 4,
-                        blurRadius: 10,
-                        offset: Offset(0, 3),
-                      )
-                    ]),
               ),
             ),
           ],
@@ -238,24 +266,32 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Masz juz konto?',
-                style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.02,
-                    fontWeight: FontWeight.w400),
+              RichText(
+                text: TextSpan(
+                  text: 'Masz juz konto?',
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                      fontFamily: 'Montserrat'),
+                ),
               ),
               TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => login_page()));
-                  },
-                  child: Text(
-                    'Zaloguj!',
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => login_page()));
+                },
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Zaloguj!',
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.height * 0.02,
                         color: Colors.yellow[600],
-                        fontWeight: FontWeight.bold),
-                  ))
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Montserrat'),
+                  ),
+                ),
+              )
             ],
           ),
         )

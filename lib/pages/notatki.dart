@@ -1,6 +1,8 @@
-// 'Zobacz oferty spełniające twoje wymagania',
-//                 style: TextStyle(
-//                     fontSize: 20,
-//                     letterSpacing: 2,
-//                     fontWeight: FontWeight.bold),
-//                 textAlign: TextAlign.left,
+// import 'package:flutter/material.dart';
+
+// class Quote {
+//   String text;
+//   String author;
+
+//   Quote({required this.author, required this.text});
+// }

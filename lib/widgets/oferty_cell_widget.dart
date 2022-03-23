@@ -20,6 +20,7 @@ class OfertyCellWidget extends StatelessWidget {
       required this.rok,
       required this.przebieg,
       required this.onClick});
+  bool favourite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -54,42 +55,48 @@ class OfertyCellWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      cena,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                    RichText(
+                      text: TextSpan(
+                        text: cena,
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                            fontFamily: 'Montserrat'),
+                      ),
                     ),
                     SizedBox(
                       height: 5,
                     ),
-                    Text(
-                      '$firma $model',
+                    RichText(
+                        text: TextSpan(
+                      text: '$firma $model',
                       style: TextStyle(
+                        fontFamily: 'Montserrat',
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
                         color: Colors.black,
                       ),
-                    ),
+                    )),
                     SizedBox(
                       height: 10,
                     ),
                     Row(
                       children: [
-                        Text(
-                          'Rok: $rok',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          'Przebieg: $przebieg',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
+                        Expanded(
+                            child: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        color: Colors.black,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w400),
+                                    children: [
+                              TextSpan(
+                                text: "Rok : $rok  ",
+                              ),
+                              TextSpan(text: "  Przebieg: $przebieg")
+                            ]))),
                       ],
                     ),
                     SizedBox(
@@ -97,21 +104,20 @@ class OfertyCellWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text(
-                          '$firma, $model',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          '$firma, $model',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
+                        Expanded(
+                            child: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        color: Colors.black,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w300),
+                                    children: [
+                              TextSpan(
+                                text: "$firma $model ",
+                              ),
+                              TextSpan(text: "      $firma $model")
+                            ]))),
                       ],
                     ),
                     SizedBox(
@@ -129,7 +135,14 @@ class OfertyCellWidget extends StatelessWidget {
                         SizedBox(
                           width: 5,
                         ),
-                        Text('Bialogard')
+                        Expanded(
+                          child: RichText(
+                              text: TextSpan(
+                                  text: "Białogard",
+                                  style: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.black))),
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -190,26 +203,34 @@ class OfertyCellWidget extends StatelessWidget {
                           width: 10,
                         ),
                         Flexible(
-                          child: Container(
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft,
-                                    colors: [
-                                      Colors.yellow[600]!,
-                                      Colors.yellow[700]!
-                                    ]),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(8),
-                                ),
-                                color: Colors.yellow[600]),
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
-                            height: 30,
-                            width: 50,
+                          //TODO naprawic gesture detector
+                          child: GestureDetector(
+                            onTap: (() {
+                              SetState() {
+                                favourite = true;
+                              }
+                            }),
                             child: Container(
-                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topRight,
+                                      end: Alignment.bottomLeft,
+                                      colors: [
+                                        Colors.yellow[600]!,
+                                        Colors.yellow[700]!
+                                      ]),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(8),
+                                  ),
+                                  color: Colors.yellow[600]),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4),
+                              height: 30,
+                              width: 50,
                               child: ClipRRect(
-                                  child: Icon(Icons.star_border_outlined)),
+                                  child: (favourite)
+                                      ? Icon(Icons.star_border_outlined)
+                                      : Icon(Icons.star)),
                             ),
                           ),
                         ),

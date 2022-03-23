@@ -31,20 +31,23 @@ class _OfertyState extends State<Oferty> {
           ),
         ),
         backgroundColor: Colors.yellow[600],
-        title: const Text(
-          'Oferty',
+        title: RichText(
+            text: TextSpan(
+          text: 'Oferty',
           style: TextStyle(
             letterSpacing: 2.0,
             fontWeight: FontWeight.bold,
+            fontSize: 20,
+            fontFamily: 'Montserrat',
           ),
-        ),
+        )),
         actions: [],
       ),
       body: SafeArea(
         minimum: const EdgeInsets.all(8),
         child: Column(
           children: [
-            Container(
+            Flexible(
               child: RichText(
                 text: TextSpan(
                     style: TextStyle(
@@ -69,15 +72,16 @@ class _OfertyState extends State<Oferty> {
                                     Colors.yellow[700]!
                                   ]),
                             ),
-                            child: Text(
-                              'oferty',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )),
+                            child: RichText(
+                                textAlign: TextAlign.center,
+                                text: TextSpan(
+                                  text: 'oferty',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Montserrat'),
+                                ))),
                       ),
                       TextSpan(text: ' spełniające  '),
                       WidgetSpan(
@@ -97,15 +101,17 @@ class _OfertyState extends State<Oferty> {
                                       Colors.yellow[700]!
                                     ]),
                               ),
-                              child: Text(
-                                'twoje wymagania!',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              )),
+                              child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                    text: 'twoje wymagania!',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Montserrat',
+                                    ),
+                                  ))),
                         ),
                       ),
                     ]),
@@ -117,9 +123,11 @@ class _OfertyState extends State<Oferty> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Expanded(
+                Flexible(
                   child: TextField(
                     decoration: InputDecoration(
+                      hintStyle:
+                          TextStyle(fontSize: 16, fontFamily: 'Montserrat'),
                       hintText: "Zacznij swoje poszukiwania ",
                       filled: true,
                       fillColor: Colors.grey[200],
@@ -154,38 +162,42 @@ class _OfertyState extends State<Oferty> {
             ),
             Container(
               alignment: Alignment.centerLeft,
-              child: Text(
-                'Popularne Marki',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  letterSpacing: 2,
+              child: RichText(
+                text: TextSpan(
+                  text: 'Popularne Marki',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      letterSpacing: 2,
+                      color: Colors.black,
+                      fontFamily: "Montserrat"),
                 ),
               ),
             ),
             Offers(),
             Container(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Rekomendowane: ',
-                style: TextStyle(
-                    shadows: <Shadow>[
-                      Shadow(
-                          offset: Offset(1, 1.0),
-                          blurRadius: 3.0,
-                          color: Colors.grey[600]!),
-                    ],
-                    fontSize: 18,
-                    letterSpacing: 2,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.black),
-                textAlign: TextAlign.left,
-              ),
-            ),
+                alignment: Alignment.centerLeft,
+                child: RichText(
+                    text: TextSpan(
+                  text: 'Rekomendowane: ',
+                  style: TextStyle(
+                      shadows: <Shadow>[
+                        Shadow(
+                            offset: Offset(1, 1.0),
+                            blurRadius: 3.0,
+                            color: Colors.grey[600]!),
+                      ],
+                      fontFamily: 'Montserrat',
+                      fontSize: 18,
+                      letterSpacing: 2,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.black),
+                ))),
             SizedBox(
               height: 5,
             ),
             Expanded(
+              flex: 6,
               child: ListView.separated(
                 shrinkWrap: true,
                 itemCount: data.length,
@@ -208,6 +220,9 @@ class _OfertyState extends State<Oferty> {
                           model: post.model,
                           cena: post.cena,
                           opis: post.opis,
+                          image1: post.image1,
+                          image2: post.image2,
+                          image3: post.image3,
                         ),
                       ));
                     },

@@ -183,7 +183,7 @@ class _BlogState extends State<Blog> {
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
+                SizedBox(
                   height: 25,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
@@ -274,7 +274,7 @@ class _BlogState extends State<Blog> {
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
+                SizedBox(
                   height: 25,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
