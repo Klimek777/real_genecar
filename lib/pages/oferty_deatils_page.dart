@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:genecar/pages/blog.dart';
 
 class OfertyDetailsPage extends StatelessWidget {
   final String title;
@@ -51,6 +50,7 @@ class OfertyDetailsPage extends StatelessWidget {
             ],
           ),
           body: Stack(
+            clipBehavior: Clip.none,
             children: <Widget>[
               Column(
                 children: [
@@ -81,7 +81,7 @@ class OfertyDetailsPage extends StatelessWidget {
                           child: Container(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              "$title",
+                              title,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                   fontSize: 25, fontWeight: FontWeight.bold),
@@ -170,7 +170,6 @@ class OfertyDetailsPage extends StatelessWidget {
                 ),
               ),
             ],
-            overflow: Overflow.visible,
           ),
         ),
       ),

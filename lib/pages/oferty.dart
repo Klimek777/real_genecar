@@ -1,12 +1,9 @@
-import 'dart:ui';
-import 'package:flutter/cupertino.dart';
 import 'package:genecar/widgets/popularne_marki_widget.dart';
 
 import 'ogloszenia_lista.dart';
 import 'package:flutter/material.dart';
 import 'package:genecar/pages/oferty_deatils_page.dart';
 import 'package:genecar/widgets/oferty_cell_widget.dart';
-import 'package:genecar/widgets/testowy_pasek.dart';
 
 class Oferty extends StatefulWidget {
   @override
@@ -158,7 +155,7 @@ class _OfertyState extends State<Oferty> {
               ],
             ),
             const SizedBox(
-              height: 15,
+              height: 10,
             ),
             Container(
               alignment: Alignment.centerLeft,
@@ -197,7 +194,7 @@ class _OfertyState extends State<Oferty> {
               height: 5,
             ),
             Expanded(
-              flex: 6,
+              flex: 5,
               child: ListView.separated(
                 shrinkWrap: true,
                 itemCount: data.length,
@@ -245,14 +242,18 @@ class _OfertyState extends State<Oferty> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.sms),
-            label: 'Wiadomości',
+            label: 'Chat',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_circle),
+            label: 'Dodaj',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Ulubione',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.my_library_add),
+            icon: Icon(Icons.person),
             label: 'Moje oferty ',
           ),
         ],

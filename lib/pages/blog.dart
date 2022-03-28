@@ -63,9 +63,15 @@ class _BlogState extends State<Blog> {
           ),
         ),
         backgroundColor: Colors.yellow[600],
-        title: const Text(
-          'Blog',
-          style: TextStyle(letterSpacing: 2.0, fontWeight: FontWeight.bold),
+        title: RichText(
+          text: TextSpan(
+            text: 'Blog',
+            style: TextStyle(
+                letterSpacing: 2.0,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Montserrat',
+                fontSize: 20),
+          ),
         ),
         actions: [
           InkWell(

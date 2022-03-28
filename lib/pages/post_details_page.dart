@@ -117,11 +117,9 @@ class PostDetailsPage extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              Container(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(image),
-                ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(image),
               ),
               const SizedBox(
                 height: 16,

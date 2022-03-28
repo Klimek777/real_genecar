@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:genecar/pages/login_page.dart';
 import 'package:genecar/pages/blog.dart';
-import 'package:genecar/pages/register.dart';
 import 'package:genecar/pages/search_car.dart';
 import 'package:genecar/pages/oferty.dart';
 import 'package:genecar/pages/uslugi.dart';
