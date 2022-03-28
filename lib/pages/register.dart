@@ -12,6 +12,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  bool checkedValue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +47,7 @@ class _RegisterState extends State<Register> {
                         fontWeight: FontWeight.w400,
                         letterSpacing: 2.0),
                     labelText: 'e-mail',
-                    hintText: 'e-mail'),
+                    hintText: 'Podaj e-mail'),
               ),
             ),
             Padding(
@@ -73,6 +74,29 @@ class _RegisterState extends State<Register> {
               ),
             ),
             Padding(
+              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0),
+              child: TextField(
+                decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      // width: 0.0 produces a thin "hairline" border
+                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      // width: 0.0 produces a thin "hairline" border
+                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
+                    ),
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 2.0),
+                    labelText: 'Powtórz hasło ',
+                    hintText: 'Podaj hasło ponownie'),
+              ),
+            ),
+            Padding(
               padding: EdgeInsets.all(20.0),
               child: TextField(
                 decoration: InputDecoration(
@@ -91,37 +115,12 @@ class _RegisterState extends State<Register> {
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
                         letterSpacing: 2.0),
-                    labelText: 'Imię',
-                    hintText: 'Podaj swoje imię'),
+                    labelText: 'Imię i nazwisko (nazwa)',
+                    hintText: 'Podaj nazwę swojego profilu'),
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(20.0, 0, 20, 0),
-              child: TextField(
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 2.0),
-                    labelText: 'Naziwsko',
-                    hintText: 'Podaj swoje naziwsko'),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 20.0),
               child: TextField(
                 decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -143,6 +142,22 @@ class _RegisterState extends State<Register> {
                         letterSpacing: 2.0),
                     labelText: 'Numer telefonu',
                     hintText: 'Numer telefonu'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(40.0, 0, 0, 0),
+              child: Center(
+                child: CheckboxListTile(
+                  controlAffinity: ListTileControlAffinity.leading,
+                  value: checkedValue,
+                  onChanged: (newValue) {
+                    setState(() {
+                      checkedValue = newValue!;
+                    });
+                  },
+                  title: Text('Akceptuję regulamin'),
+                  activeColor: Colors.yellow[600],
+                ),
               ),
             ),
             Padding(
