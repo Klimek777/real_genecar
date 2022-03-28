@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:genecar/pages/register.dart';
+import 'package:genecar/widgets/text_field_input.dart';
 
 // ignore: camel_case_types
 class login_page extends StatefulWidget {
@@ -13,6 +14,16 @@ class login_page extends StatefulWidget {
 
 // ignore: camel_case_types
 class _login_pageState extends State<login_page> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,62 +56,47 @@ class _login_pageState extends State<login_page> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Expanded(
                   child: Padding(
                 padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        // width: 0.0 produces a thin "hairline" border
-                        borderSide:
-                            BorderSide(color: Colors.amberAccent, width: 2.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        // width: 0.0 produces a thin "hairline" border
-                        borderSide:
-                            BorderSide(color: Colors.amberAccent, width: 2.0),
-                      ),
-                      border: OutlineInputBorder(),
-                      labelStyle: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 2.0),
-                      labelText: 'Login',
-                      hintText: 'Wprowadź swój login lub e-mail'),
-                ),
+                child: TextFieldInput(
+                    labelText: 'E-mail',
+                    textEditingController: _emailController,
+                    hintText: 'Wprowadź swój e-mail',
+                    textInputType: TextInputType.emailAddress),
               )),
             ],
           ),
           const SizedBox(
             height: 20.0,
           ),
+          /*Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20.0, 0, 20, 20),
+                  child: TextFieldInput(
+                      labelText: 'testowy guzik',
+                      textEditingController: _testController,
+                      hintText: 'podaj se tu cosik',
+                      textInputType: TextInputType.text),
+                ),
+              ),
+            ],
+          ),*/
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Expanded(
                   child: Padding(
                 padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                child: TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        // width: 0.0 produces a thin "hairline" border
-                        borderSide:
-                            BorderSide(color: Colors.amberAccent, width: 2.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        // width: 0.0 produces a thin "hairline" border
-                        borderSide:
-                            BorderSide(color: Colors.amberAccent, width: 2.0),
-                      ),
-                      border: OutlineInputBorder(),
-                      labelStyle: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 2.0),
-                      labelText: 'Password',
-                      hintText: 'Wprowadź swoje hasło'),
+                child: TextFieldInput(
+                  labelText: 'Hasło',
+                  textEditingController: _passwordController,
+                  hintText: 'Wprowadź swoje hasło',
+                  textInputType: TextInputType.text,
+                  isPass: true,
                 ),
               )),
             ],
