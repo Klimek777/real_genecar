@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:genecar/pages/register.dart';
+import 'package:genecar/resources/auth_methods.dart';
 import 'package:genecar/widgets/text_field_input.dart';
+import 'package:genecar/resources/auth_methods.dart';
 
 // ignore: camel_case_types
 class login_page extends StatefulWidget {
@@ -88,7 +90,11 @@ class _login_pageState extends State<login_page> {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () async {
+                String res = await AuthMethods().loginUser(
+                    email: _emailController.text,
+                    password: _passwordController.text);
+              },
               child: Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
