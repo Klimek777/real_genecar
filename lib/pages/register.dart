@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:genecar/pages/login_page.dart';
+import 'package:genecar/resources/auth_methods.dart';
+import 'package:genecar/widgets/text_field_input.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -12,140 +14,93 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _repeatPasswordController = TextEditingController();
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _phoneNumController = TextEditingController();
+
   bool checkedValue = false;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _repeatPasswordController.dispose();
+    _nameController.dispose();
+    _phoneNumController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.yellow[600],
           title: const Text(
             'Rejestracja',
             style: TextStyle(letterSpacing: 2.0, fontWeight: FontWeight.bold),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
+            ),
           ),
         ),
         body: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(20.0),
-              child: TextField(
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(
-                        color: Colors.yellow,
-                        width: 2.0,
-                      ),
-                    ),
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 2.0),
-                    labelText: 'e-mail',
-                    hintText: 'Podaj e-mail'),
+              padding: const EdgeInsets.all(20.0),
+              child: TextFieldInput(
+                labelText: 'E-mail',
+                textEditingController: _emailController,
+                hintText: 'Wprowadź e-mail',
+                textInputType: TextInputType.emailAddress,
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
-              child: TextField(
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 2.0),
-                    labelText: 'hasło ',
-                    hintText: 'Podaj hasło'),
+              padding: const EdgeInsets.fromLTRB(20.0, 0, 20, 0),
+              child: TextFieldInput(
+                labelText: 'Hasło',
+                textEditingController: _passwordController,
+                hintText: 'Wprowadź hasło',
+                textInputType: TextInputType.text,
+                isPass: true,
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0),
-              child: TextField(
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 2.0),
-                    labelText: 'Powtórz hasło ',
-                    hintText: 'Podaj hasło ponownie'),
+              padding: const EdgeInsets.all(20.0),
+              child: TextFieldInput(
+                labelText: 'Powtórz hasło',
+                textEditingController: _repeatPasswordController,
+                hintText: 'Wprowadź hasło ponownie',
+                textInputType: TextInputType.text,
+                isPass: true,
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(20.0),
-              child: TextField(
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 2.0),
-                    labelText: 'Imię i nazwisko (nazwa)',
-                    hintText: 'Podaj nazwę swojego profilu'),
+              padding: const EdgeInsets.fromLTRB(20.0, 0, 20, 0),
+              child: TextFieldInput(
+                labelText: 'Imię i nazwisko (nazwa)',
+                textEditingController: _nameController,
+                hintText: 'Wprowadź nazwę dla profilu',
+                textInputType: TextInputType.text,
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 20.0),
-              child: TextField(
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-
-                      // width: 0.0 produces a thin "hairline" border
-                      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
-                    ),
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 2.0),
-                    labelText: 'Numer telefonu',
-                    hintText: 'Numer telefonu'),
+              padding: const EdgeInsets.all(20.0),
+              child: TextFieldInput(
+                labelText: 'Numer telefonu',
+                textEditingController: _phoneNumController,
+                hintText: 'Wprowadź numer telefonu',
+                textInputType: TextInputType.text,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(40.0, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(40.0, 0, 40, 0),
               child: Center(
                 child: CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
@@ -155,7 +110,10 @@ class _RegisterState extends State<Register> {
                       checkedValue = newValue!;
                     });
                   },
-                  title: Text('Akceptuję regulamin'),
+                  title: Text(
+                    'Akceptuję regulamin',
+                    textAlign: TextAlign.center,
+                  ),
                   activeColor: Colors.yellow[600],
                 ),
               ),
@@ -163,7 +121,17 @@ class _RegisterState extends State<Register> {
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  String res = await AuthMethods().signUpUser(
+                    email: _emailController.text,
+                    password: _passwordController.text,
+                    repeatPassword: _repeatPasswordController.text,
+                    name: _nameController.text,
+                    phoneNum: _phoneNumController.text,
+                    rulesAccepted: checkedValue ? true : false,
+                  );
+                  print(res);
+                },
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -186,6 +154,10 @@ class _RegisterState extends State<Register> {
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
                     ),
+                    gradient: LinearGradient(
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
                   ),
                 ),
               ),
