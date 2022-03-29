@@ -1,7 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:genecar/pages/home.dart';
+import 'package:genecar/pages/Oferty/add_offer.dart';
+import 'package:genecar/pages/Home/home.dart';
+import 'package:genecar/pages/Oferty/ulubione.dart';
+import 'package:genecar/widgets/ofertowy_page_widget.dart';
+import 'package:genecar/widgets/testowy_pasek.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
