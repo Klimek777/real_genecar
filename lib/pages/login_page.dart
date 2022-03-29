@@ -18,7 +18,6 @@ class _login_pageState extends State<login_page> {
   TextEditingController _passwordController = TextEditingController();
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
@@ -37,7 +36,6 @@ class _login_pageState extends State<login_page> {
                   colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
             ),
           ),
-          backgroundColor: Colors.yellow[600],
           title: const Text(
             'Logowanie',
             style: TextStyle(letterSpacing: 2.0, fontWeight: FontWeight.bold),
@@ -71,20 +69,6 @@ class _login_pageState extends State<login_page> {
           const SizedBox(
             height: 20.0,
           ),
-          /*Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20.0, 0, 20, 20),
-                  child: TextFieldInput(
-                      labelText: 'testowy guzik',
-                      textEditingController: _testController,
-                      hintText: 'podaj se tu cosik',
-                      textInputType: TextInputType.text),
-                ),
-              ),
-            ],
-          ),*/
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
