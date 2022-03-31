@@ -41,52 +41,25 @@ class _OfertyState extends State<Oferty> {
         actions: [],
       ),
       body: SafeArea(
-        minimum: const EdgeInsets.all(8),
+        minimum: const EdgeInsets.all(4),
         child: Column(
           children: [
             Flexible(
-              child: RichText(
-                text: TextSpan(
-                    style: TextStyle(
-                        fontSize: 20,
-                        letterSpacing: 2,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                    children: <InlineSpan>[
-                      TextSpan(text: 'Zobacz '),
-                      WidgetSpan(
-                        child: Container(
-                            height: 26,
-                            width: 80,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Colors.yellow[600]!,
-                                    Colors.yellow[700]!
-                                  ]),
-                            ),
-                            child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                  text: 'oferty',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Montserrat'),
-                                ))),
-                      ),
-                      TextSpan(text: ' spełniające  '),
-                      WidgetSpan(
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+              child: Padding(
+                padding: EdgeInsets.all(3),
+                child: RichText(
+                  text: TextSpan(
+                      style: TextStyle(
+                          fontSize: 20,
+                          letterSpacing: 2,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                      children: <InlineSpan>[
+                        TextSpan(text: 'Zobacz '),
+                        WidgetSpan(
                           child: Container(
                               height: 26,
-                              width: 200,
+                              width: 80,
                               decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10)),
@@ -101,17 +74,47 @@ class _OfertyState extends State<Oferty> {
                               child: RichText(
                                   textAlign: TextAlign.center,
                                   text: TextSpan(
-                                    text: 'twoje wymagania!',
+                                    text: 'oferty',
                                     style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Montserrat',
-                                    ),
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Montserrat'),
                                   ))),
                         ),
-                      ),
-                    ]),
+                        TextSpan(text: ' spełniające  '),
+                        WidgetSpan(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                            child: Container(
+                                height: 26,
+                                width: 200,
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topRight,
+                                      end: Alignment.bottomLeft,
+                                      colors: [
+                                        Colors.yellow[600]!,
+                                        Colors.yellow[700]!
+                                      ]),
+                                ),
+                                child: RichText(
+                                    textAlign: TextAlign.center,
+                                    text: TextSpan(
+                                      text: 'twoje wymagania!',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Montserrat',
+                                      ),
+                                    ))),
+                          ),
+                        ),
+                      ]),
+                ),
               ),
             ),
             SizedBox(
@@ -194,9 +197,8 @@ class _OfertyState extends State<Oferty> {
               height: 5,
             ),
             Expanded(
-              flex: 5,
+              flex: 4,
               child: ListView.separated(
-                shrinkWrap: true,
                 itemCount: data.length,
                 itemBuilder: (context, index) {
                   final post = data[index];

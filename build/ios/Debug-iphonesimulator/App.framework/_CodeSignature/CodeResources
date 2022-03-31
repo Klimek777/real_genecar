@@ -74,7 +74,11 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
+<<<<<<< HEAD
 		zzD77PQvFhNdQaKNnYi4biMPC98=
+=======
+		05EkPTLv0axazfLGyGPvmwi0lyE=
+>>>>>>> 172eb377d7cd5a880c82fe91a13e0b6d688b7b6f
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -203,7 +207,11 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< HEAD
 			UoU543iH+thYhpBOCBQ4LHQmSlS3B7IHMmR/9r7lSB4=
+=======
+			KpO3sS81AcVa3/pcslRvqPw3fedy9vmiE3EKudKumgM=
+>>>>>>> 172eb377d7cd5a880c82fe91a13e0b6d688b7b6f
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
