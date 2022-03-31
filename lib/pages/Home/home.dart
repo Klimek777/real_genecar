@@ -1,5 +1,7 @@
 //ignore_for_file: prefer_const_constructors, deprecated_member_use
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:genecar/pages/login_page.dart';
 import 'package:genecar/pages/Blog/blog.dart';
@@ -265,34 +267,68 @@ class _HomePageState extends State<HomePage> {
         SafeArea(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              RichText(
-                text: TextSpan(
-                  text: 'Masz juz konto?',
-                  style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.height * 0.02,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.black,
-                      fontFamily: 'Montserrat'),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => login_page()));
-                },
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Zaloguj!',
-                    style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
-                        color: Colors.yellow[600],
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Montserrat'),
-                  ),
-                ),
-              )
-            ],
+            children: FirebaseAuth.instance.currentUser == null
+                ? [
+                    RichText(
+                      text: TextSpan(
+                        text: 'Masz juz konto?',
+                        style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.height * 0.02,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                            fontFamily: 'Montserrat'),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => login_page()));
+                      },
+                      child: RichText(
+                        text: TextSpan(
+                          text: 'Zaloguj!',
+                          style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.02,
+                              color: Colors.yellow[600],
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Montserrat'),
+                        ),
+                      ),
+                    ),
+                  ]
+                : [
+                    RichText(
+                      text: TextSpan(
+                        text: 'Witaj',
+                        style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.height * 0.02,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                            fontFamily: 'Montserrat'),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => login_page()));
+                      },
+                      child: GestureDetector(
+                        child: RichText(
+                          text: TextSpan(
+                            text: 'Wyloguj się',
+                            style: TextStyle(
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.02,
+                                color: Colors.yellow[600],
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat'),
+                          ),
+                        ),
+                        onTap: FirebaseAuth.instance.signOut,
+                      ),
+                    ),
+                  ],
           ),
         )
       ]),

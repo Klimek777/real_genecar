@@ -5,6 +5,7 @@ import 'package:genecar/pages/register.dart';
 import 'package:genecar/resources/auth_methods.dart';
 import 'package:genecar/widgets/text_field_input.dart';
 import 'package:genecar/resources/auth_methods.dart';
+import 'package:genecar/utils/utils.dart';
 
 // ignore: camel_case_types
 class login_page extends StatefulWidget {
@@ -23,6 +24,22 @@ class _login_pageState extends State<login_page> {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+  }
+
+  bool _isLoading = false;
+  void loginUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String res = await AuthMethods().loginUser(
+        email: _emailController.text, password: _passwordController.text);
+    if (res == 'Success!') {
+    } else {
+      showSnackBar(res, context);
+    }
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   @override
@@ -90,26 +107,28 @@ class _login_pageState extends State<login_page> {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
             child: TextButton(
-              onPressed: () async {
-                String res = await AuthMethods().loginUser(
-                    email: _emailController.text,
-                    password: _passwordController.text);
-              },
+              onPressed: loginUser,
               child: Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // ignore: prefer_const_constructors
-                    Text(
-                      'Zaloguj',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 23.0,
-                        letterSpacing: 2.0,
-                      ),
-                    ),
-                  ],
+                  children: _isLoading
+                      ? [
+                          Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        ]
+                      : [
+                          // ignore: prefer_const_constructors
+                          Text(
+                            'Zaloguj',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23.0,
+                              letterSpacing: 2.0,
+                            ),
+                          ),
+                        ],
                 ),
                 height: 50,
                 width: 250,

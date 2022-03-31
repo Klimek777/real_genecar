@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:genecar/pages/login_page.dart';
 import 'package:genecar/resources/auth_methods.dart';
+import 'package:genecar/utils/utils.dart';
 import 'package:genecar/widgets/text_field_input.dart';
 
 class Register extends StatefulWidget {
@@ -31,6 +32,29 @@ class _RegisterState extends State<Register> {
     _repeatPasswordController.dispose();
     _nameController.dispose();
     _phoneNumController.dispose();
+  }
+
+  bool _isLoading = false;
+
+  void registerUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String res = await AuthMethods().signUpUser(
+      email: _emailController.text,
+      password: _passwordController.text,
+      repeatPassword: _repeatPasswordController.text,
+      name: _nameController.text,
+      phoneNum: _phoneNumController.text,
+      rulesAccepted: checkedValue ? true : false,
+    );
+    if (res == 'Success!') {
+    } else {
+      showSnackBar(res, context);
+    }
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   @override
@@ -121,31 +145,27 @@ class _RegisterState extends State<Register> {
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
               child: TextButton(
-                onPressed: () async {
-                  String res = await AuthMethods().signUpUser(
-                    email: _emailController.text,
-                    password: _passwordController.text,
-                    repeatPassword: _repeatPasswordController.text,
-                    name: _nameController.text,
-                    phoneNum: _phoneNumController.text,
-                    rulesAccepted: checkedValue ? true : false,
-                  );
-                  print(res);
-                },
+                onPressed: registerUser,
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Zarejestruj',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 23.0,
-                          letterSpacing: 2.0,
-                        ),
-                      ),
-                    ],
+                    children: _isLoading
+                        ? [
+                            Center(
+                              child: CircularProgressIndicator(),
+                            )
+                          ]
+                        : [
+                            Text(
+                              'Zarejestruj',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 23.0,
+                                letterSpacing: 2.0,
+                              ),
+                            ),
+                          ],
                   ),
                   height: 50,
                   width: 250,

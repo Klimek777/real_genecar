@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:genecar/firebase_options.dart';
 import 'package:genecar/pages/Oferty/add_offer.dart';
 import 'package:genecar/pages/Home/home.dart';
 import 'package:genecar/pages/Oferty/ulubione.dart';
+import 'package:genecar/pages/login_page.dart';
 import 'package:genecar/widgets/ofertowy_page_widget.dart';
 import 'package:genecar/widgets/testowy_pasek.dart';
 
@@ -24,7 +27,25 @@ void main() async {
   runApp(
     MaterialApp(
       theme: ThemeData(fontFamily: 'Montserrat'),
-      home: HomePage(),
+      home: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.active) {
+              if (snapshot.hasData) {
+                return HomePage();
+              } else if (snapshot.hasError) {
+                return Center(
+                  child: Text('${snapshot.error}'),
+                );
+              }
+            }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            return const login_page();
+          }),
     ),
   );
 }
