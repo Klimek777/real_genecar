@@ -60,7 +60,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1089087912266',
     projectId: 'genecar-bb3ea',
     storageBucket: 'genecar-bb3ea.appspot.com',
-    iosClientId: '1089087912266-41qffqqdv1f55u7j1gm0qdfutsfkr4om.apps.googleusercontent.com',
+    iosClientId:
+        '1089087912266-41qffqqdv1f55u7j1gm0qdfutsfkr4om.apps.googleusercontent.com',
     iosBundleId: 'com.example.genecar',
   );
 }
