@@ -1386,7 +1386,11 @@
 		</data>
 		<key>PrivateHeaders/src/core/lib/security/credentials/credentials.h</key>
 		<data>
+<<<<<<< HEAD
 		lmo+1slPs098M9sonFiIEPRnOyU=
+=======
+		2gVS8yeSm42Z6xtnoXE3gYrW6KA=
+>>>>>>> f0084893c63954e19c946f655354f5c32bf40dc9
 		</data>
 		<key>PrivateHeaders/src/core/lib/security/credentials/fake/fake_credentials.h</key>
 		<data>
@@ -4197,9 +4201,19 @@
 		</dict>
 		<key>PrivateHeaders/src/core/lib/security/credentials/credentials.h</key>
 		<dict>
+<<<<<<< HEAD
 			<key>hash2</key>
 			<data>
 			7vWo7OEDb2BQl1Y2Ud/7CoWK9Drd44iMlrnS8fu04Os=
+=======
+			<key>hash</key>
+			<data>
+			2gVS8yeSm42Z6xtnoXE3gYrW6KA=
+			</data>
+			<key>hash2</key>
+			<data>
+			CZu2d6X2mImOmZqpB8xj0fozzd9qkib/7XyKaBFGJ1o=
+>>>>>>> f0084893c63954e19c946f655354f5c32bf40dc9
 			</data>
 		</dict>
 		<key>PrivateHeaders/src/core/lib/security/credentials/fake/fake_credentials.h</key>
@@ -4330,6 +4344,13 @@
 		</dict>
 		<key>PrivateHeaders/src/core/lib/security/security_connector/ssl/ssl_security_connector.h</key>
 		<dict>
+<<<<<<< HEAD
+=======
+			<key>hash</key>
+			<data>
+			a+NCbu9lR9qhlCz/r9bGLalmFMU=
+			</data>
+>>>>>>> f0084893c63954e19c946f655354f5c32bf40dc9
 			<key>hash2</key>
 			<data>
 			vwHsREDpTNqofch3wbron9Uj56V7rRp2AM5JsfmQvPo=
