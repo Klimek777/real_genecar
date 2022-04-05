@@ -22,7 +22,8 @@ void main() async {
           storageBucket: 'genecar-bb3ea.appspot.com'),
     );
   } else {
-    await Firebase.initializeApp();
+    await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform);
   }
   runApp(
     MaterialApp(
