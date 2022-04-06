@@ -54,7 +54,7 @@ class _TesowyPageState extends State<TesowyPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Moje oferty ',
+            label: 'Mój Profil ',
           ),
         ],
         selectedItemColor: Colors.yellow[600],
