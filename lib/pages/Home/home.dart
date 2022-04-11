@@ -9,6 +9,7 @@ import 'package:genecar/widgets/ofertowy_page_widget.dart';
 import 'package:genecar/pages/ZnajdzAuto/search_car.dart';
 import 'package:genecar/pages/Oferty/oferty.dart';
 import 'package:genecar/pages/Uslugi/uslugi.dart';
+import 'package:genecar/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,6 +17,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String username = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getUserName();
+  }
+
+  void getUserName() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      username = (snap.data() as Map<String, dynamic>)['name'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -300,7 +320,7 @@ class _HomePageState extends State<HomePage> {
                 : [
                     RichText(
                       text: TextSpan(
-                        text: 'Witaj',
+                        text: ('Witaj, ' + username),
                         style: TextStyle(
                             fontSize: MediaQuery.of(context).size.height * 0.02,
                             fontWeight: FontWeight.w400,

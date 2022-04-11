@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:genecar/pages/Blog/add_post.dart';
 import 'package:genecar/pages/Blog/post_details_page.dart';
 import 'package:genecar/widgets/post_cell_widget.dart';
 
@@ -109,6 +110,25 @@ class _BlogState extends State<Blog> {
                   ),
                 ),
               ],
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => BlogAddPost()));
+            },
+            child: InkWell(
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                    child: Icon(
+                      Icons.add,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
