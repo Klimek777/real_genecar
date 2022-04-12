@@ -5,12 +5,12 @@ import 'package:genecar/pages/Blog/add_post.dart';
 import 'package:genecar/pages/Blog/post_details_page.dart';
 import 'package:genecar/widgets/post_cell_widget.dart';
 
-class Post {
+class Post_old {
   final String title;
   final String image;
   final String author;
   final String date;
-  Post(
+  Post_old(
       {required this.title,
       required this.image,
       required this.author,
@@ -24,25 +24,25 @@ class Blog extends StatefulWidget {
 
 class _BlogState extends State<Blog> {
   final data = [
-    Post(
+    Post_old(
       title: 'Dlaczego boimy się korzystać z komisów samochodwych',
       image: 'assets/images/auta_komis.jpeg',
       author: 'Dawid',
       date: '25 mar 2020',
     ),
-    Post(
+    Post_old(
       title: 'Jakie naprawy warto wykonywać samemu',
       image: 'assets/images/naprawy.jpeg',
       author: 'Michal',
       date: '25 mar 2020',
     ),
-    Post(
+    Post_old(
       title: 'Znajdz swój samochód - rewolucja',
       image: 'assets/images/skoda_jakas.jpeg',
       author: 'Mateusz',
       date: '25 mar 2020',
     ),
-    Post(
+    Post_old(
       title: 'Kiedy na wakacje wybrać się autem?',
       image: 'assets/images/wycieczka.jpeg',
       author: 'Dawid',

@@ -5,11 +5,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:genecar/pages/login_page.dart';
 import 'package:genecar/pages/Blog/blog.dart';
+import 'package:genecar/providers/user_provider.dart';
 import 'package:genecar/widgets/ofertowy_page_widget.dart';
 import 'package:genecar/pages/ZnajdzAuto/search_car.dart';
 import 'package:genecar/pages/Oferty/oferty.dart';
 import 'package:genecar/pages/Uslugi/uslugi.dart';
 import 'package:genecar/pages/login_page.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -23,6 +25,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     getUserName();
+    addData();
+  }
+
+  addData() async {
+    UserProvider _userProvider = Provider.of(context, listen: false);
+    await _userProvider.refreshUser();
   }
 
   void getUserName() async {
