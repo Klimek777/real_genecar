@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 
-class WybierzModel extends StatefulWidget {
-  const WybierzModel({Key? key}) : super(key: key);
+class WybierzNaped extends StatefulWidget {
+  const WybierzNaped({Key? key}) : super(key: key);
 
   @override
-  State<WybierzModel> createState() => _WybierzModelState();
+  State<WybierzNaped> createState() => _WybierzNapedState();
 }
 
-class _WybierzModelState extends State<WybierzModel> {
-  String dropdownValue1 = 'Wybierz';
+class _WybierzNapedState extends State<WybierzNaped> {
   @override
   Widget build(BuildContext context) {
+    String dropdownValue = 'Wybierz';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         RichText(
-          text: TextSpan(
-              text: "Wybierz model", style: TextStyle(color: Colors.black)),
+          text: TextSpan(text: "Napęd", style: TextStyle(color: Colors.black)),
         ),
         DropdownButton<String>(
-          value: dropdownValue1,
+          value: dropdownValue,
           icon: const Icon(Icons.arrow_downward),
           elevation: 16,
           style: const TextStyle(color: Colors.black),
@@ -29,10 +28,10 @@ class _WybierzModelState extends State<WybierzModel> {
           ),
           onChanged: (String? newValue1) {
             setState(() {
-              dropdownValue1 = newValue1!;
+              dropdownValue = newValue1!;
             });
           },
-          items: <String>['Wybierz', 'Model 1', 'Model 2', 'Model 3']
+          items: <String>['Wybierz', 'przód', 'tył ', ' 4x4']
               .map<DropdownMenuItem<String>>((String value1) {
             return DropdownMenuItem<String>(
               value: value1,
@@ -42,7 +41,7 @@ class _WybierzModelState extends State<WybierzModel> {
               ),
             );
           }).toList(),
-        )
+        ),
       ],
     );
   }

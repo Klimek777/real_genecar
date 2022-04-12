@@ -11,17 +11,13 @@ class _WybierzMarkeState extends State<WybierzMarke> {
   String dropdownValue = 'Wybierz';
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Padding(
-        padding: EdgeInsets.fromLTRB(40, 20, 0, 2),
-        child: RichText(
+    return SafeArea(
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        RichText(
           text: TextSpan(
               text: "Wybierz marke", style: TextStyle(color: Colors.black)),
         ),
-      ),
-      Padding(
-        padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
-        child: DropdownButton<String>(
+        DropdownButton<String>(
           value: dropdownValue,
           icon: const Icon(Icons.arrow_downward),
           elevation: 16,
@@ -47,8 +43,8 @@ class _WybierzMarkeState extends State<WybierzMarke> {
               ),
             );
           }).toList(),
-        ),
-      )
-    ]);
+        )
+      ]),
+    );
   }
 }
