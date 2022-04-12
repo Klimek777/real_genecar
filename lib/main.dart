@@ -7,8 +7,10 @@ import 'package:genecar/pages/Oferty/add_offer.dart';
 import 'package:genecar/pages/Home/home.dart';
 import 'package:genecar/pages/Oferty/ulubione.dart';
 import 'package:genecar/pages/login_page.dart';
+import 'package:genecar/providers/user_provider.dart';
 import 'package:genecar/widgets/ofertowy_page_widget.dart';
 import 'package:genecar/widgets/testowy_pasek.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,27 +28,34 @@ void main() async {
         options: DefaultFirebaseOptions.currentPlatform);
   }
   runApp(
-    MaterialApp(
-      theme: ThemeData(fontFamily: 'Montserrat'),
-      home: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.active) {
-              if (snapshot.hasData) {
-                return HomePage();
-              } else if (snapshot.hasError) {
-                return Center(
-                  child: Text('${snapshot.error}'),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => UserProvider(),
+        )
+      ],
+      child: MaterialApp(
+        theme: ThemeData(fontFamily: 'Montserrat'),
+        home: StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.active) {
+                if (snapshot.hasData) {
+                  return HomePage();
+                } else if (snapshot.hasError) {
+                  return Center(
+                    child: Text('${snapshot.error}'),
+                  );
+                }
+              }
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: CircularProgressIndicator(),
                 );
               }
-            }
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            return const login_page();
-          }),
+              return const login_page();
+            }),
+      ),
     ),
   );
 }

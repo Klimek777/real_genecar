@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:genecar/pages/register.dart';
 import 'package:genecar/resources/auth_methods.dart';
 import 'package:genecar/widgets/text_field_input.dart';
-import 'package:genecar/resources/auth_methods.dart';
 import 'package:genecar/utils/utils.dart';
 
 // ignore: camel_case_types
