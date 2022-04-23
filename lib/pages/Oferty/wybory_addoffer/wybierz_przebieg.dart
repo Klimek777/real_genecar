@@ -10,19 +10,17 @@ class WybierzPrzebieg extends StatefulWidget {
 class _WybierzPrzebiegState extends State<WybierzPrzebieg> {
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(60, 10, 60, 0),
-        child: TextField(
-          decoration: InputDecoration(
-              labelStyle: TextStyle(color: Colors.black),
-              fillColor: Colors.black,
-              hoverColor: Colors.black,
-              hintText: 'Wprowadz przebieg',
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.amber)),
-              labelText: 'Wprowadz przebieg'),
-        ),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(60, 10, 60, 0),
+      child: TextField(
+        decoration: InputDecoration(
+            labelStyle: TextStyle(color: Colors.black),
+            fillColor: Colors.black,
+            hoverColor: Colors.black,
+            hintText: 'Wprowadz pojemność w cm3',
+            focusedBorder:
+                OutlineInputBorder(borderSide: BorderSide(color: Colors.amber)),
+            labelText: 'Wprowadz pojemność'),
       ),
     );
   }

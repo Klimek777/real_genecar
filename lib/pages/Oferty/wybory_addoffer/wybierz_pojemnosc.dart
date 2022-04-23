@@ -12,51 +12,17 @@ class _WybierzPojemnoscState extends State<WybierzPojemnosc> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          RichText(
-            text: TextSpan(
-                text: "Pojemność skok.", style: TextStyle(color: Colors.black)),
-          ),
-          Row(
-            children: [
-              DropdownButton<String>(
-                value: dropdownValue,
-                icon: const Icon(Icons.arrow_downward),
-                elevation: 16,
-                style: const TextStyle(color: Colors.black),
-                underline: Container(
-                  height: 2,
-                  color: Colors.yellow[600],
-                ),
-                onChanged: (String? newValue) {
-                  setState(() {
-                    dropdownValue = newValue!;
-                  });
-                },
-                items: <String>[
-                  'wybierz',
-                  '1000 cm',
-                  '2000 cm ',
-                  '2500 cm',
-                  '3000 cm'
-                ].map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: RichText(
-                      text: TextSpan(
-                        text: value,
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                  );
-                }).toList(),
-              ),
-            ],
-          )
-        ],
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(60, 10, 60, 0),
+      child: TextField(
+        decoration: InputDecoration(
+            labelStyle: TextStyle(color: Colors.black),
+            fillColor: Colors.black,
+            hoverColor: Colors.black,
+            hintText: 'Wprowadz przebieg',
+            focusedBorder:
+                OutlineInputBorder(borderSide: BorderSide(color: Colors.amber)),
+            labelText: 'Wprowadz przebieg'),
       ),
     );
   }

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:genecar/widgets/text_field_input.dart';
 
-class PodajCene extends StatefulWidget {
-  const PodajCene({Key? key}) : super(key: key);
+class PodajVin extends StatefulWidget {
+  const PodajVin({Key? key}) : super(key: key);
 
   @override
-  State<PodajCene> createState() => _PodajCeneState();
+  State<PodajVin> createState() => _PodajVinState();
 }
 
-class _PodajCeneState extends State<PodajCene> {
+class _PodajVinState extends State<PodajVin> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,10 +17,10 @@ class _PodajCeneState extends State<PodajCene> {
             labelStyle: TextStyle(color: Colors.black),
             fillColor: Colors.black,
             hoverColor: Colors.amber,
-            hintText: 'Wprowadz cene',
+            hintText: 'Wprowadz numer Vin',
             focusedBorder:
                 OutlineInputBorder(borderSide: BorderSide(color: Colors.amber)),
-            labelText: 'Wprowadz cene'),
+            labelText: 'Wprowadz VIN'),
       ),
     );
   }

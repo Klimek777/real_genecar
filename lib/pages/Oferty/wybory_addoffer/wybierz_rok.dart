@@ -24,6 +24,7 @@ class _WybierzRokState extends State<WybierzRok> {
           Row(
             children: [
               DropdownButton<String>(
+                menuMaxHeight: 400,
                 value: dropdownValue,
                 icon: const Icon(Icons.arrow_downward),
                 elevation: 16,
