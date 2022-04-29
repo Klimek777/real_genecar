@@ -135,252 +135,258 @@ class _BlogState extends State<Blog> {
       ),
       body: SafeArea(
         minimum: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Wyszukaj artykuły, autorów lub tagi",
-                filled: true,
-                fillColor: Colors.grey[200],
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  borderSide: BorderSide.none,
-                ),
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.yellow[600],
+        child: ListView(children: [
+          Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "Wyszukaj artykuły, autorów lub tagi",
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderSide: BorderSide.none,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.yellow[600],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Najnowsze artykuly ",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
+              const SizedBox(
+                height: 20,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Najnowsze artykuly ",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                    textAlign: TextAlign.left,
                   ),
-                  textAlign: TextAlign.left,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ListView.separated(
-                  shrinkWrap: true,
-                  itemCount: data.length,
-                  itemBuilder: (context, index) {
-                    final post = data[index];
-                    return PostCellWidget(
-                        title: post.title,
-                        image: post.image,
-                        author: post.author,
-                        date: post.date,
-                        onClick: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (_) => PostDetailsPage(
-                                title: post.title,
-                                image: post.image,
-                                author: post.author,
-                                date: post.date),
-                          ));
-                        });
-                  },
-                  separatorBuilder: (context, index) => Divider(
-                    color: Colors.yellow[700],
+                  const SizedBox(
+                    height: 20,
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'Popularne kategorie',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                  ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      final post = data[index];
+                      return PostCellWidget(
+                          title: post.title,
+                          image: post.image,
+                          author: post.author,
+                          date: post.date,
+                          onClick: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => PostDetailsPage(
+                                  title: post.title,
+                                  image: post.image,
+                                  author: post.author,
+                                  date: post.date),
+                            ));
+                          });
+                    },
+                    separatorBuilder: (context, index) => Divider(
+                      color: Colors.yellow[700],
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  height: 25,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        width: 80,
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        margin: const EdgeInsets.all(2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Text('Poradniki', textAlign: TextAlign.center),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        width: 100,
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        margin: const EdgeInsets.all(2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child:
-                              Text('Specyfikacje', textAlign: TextAlign.center),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        width: 80,
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        margin: const EdgeInsets.all(2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Text('Spalanie', textAlign: TextAlign.center),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        width: 80,
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        margin: const EdgeInsets.all(2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Text('Nowosci ', textAlign: TextAlign.center),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        width: 80,
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        margin: const EdgeInsets.all(2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Text(
-                            'GeneCar',
-                            textAlign: TextAlign.center,
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Popularne kategorie',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 25,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          width: 80,
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          margin: const EdgeInsets.all(2),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child:
+                                Text('Poradniki', textAlign: TextAlign.center),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'Popularne marki',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  height: 25,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        width: 80,
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        margin: const EdgeInsets.all(2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Text('Audi', textAlign: TextAlign.center),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        width: 100,
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        margin: const EdgeInsets.all(2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Text('BMW', textAlign: TextAlign.center),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        width: 90,
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        margin: const EdgeInsets.all(2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child:
-                              Text('Volkswagen', textAlign: TextAlign.center),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        width: 80,
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        margin: const EdgeInsets.all(2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Text('Mercedes ', textAlign: TextAlign.center),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        width: 80,
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        margin: const EdgeInsets.all(2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Text(
-                            'Peugot',
-                            textAlign: TextAlign.center,
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          margin: const EdgeInsets.all(2),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Text('Specyfikacje',
+                                textAlign: TextAlign.center),
                           ),
                         ),
-                      ),
-                    ],
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          width: 80,
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          margin: const EdgeInsets.all(2),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child:
+                                Text('Spalanie', textAlign: TextAlign.center),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          width: 80,
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          margin: const EdgeInsets.all(2),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child:
+                                Text('Nowosci ', textAlign: TextAlign.center),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          width: 80,
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          margin: const EdgeInsets.all(2),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Text(
+                              'GeneCar',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
-        ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Popularne marki',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 25,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          width: 80,
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          margin: const EdgeInsets.all(2),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Text('Audi', textAlign: TextAlign.center),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          margin: const EdgeInsets.all(2),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Text('BMW', textAlign: TextAlign.center),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          width: 90,
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          margin: const EdgeInsets.all(2),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child:
+                                Text('Volkswagen', textAlign: TextAlign.center),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          width: 80,
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          margin: const EdgeInsets.all(2),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child:
+                                Text('Mercedes ', textAlign: TextAlign.center),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          width: 80,
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          margin: const EdgeInsets.all(2),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Text(
+                              'Peugot',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ]),
       ),
     );
   }

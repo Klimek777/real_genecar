@@ -16,15 +16,24 @@ class _WybierzModelState extends State<WybierzModel> {
       children: [
         RichText(
           text: TextSpan(
-              text: "Wybierz model", style: TextStyle(color: Colors.black)),
+              text: "Wybierz model",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.bold)),
         ),
         DropdownButton<String>(
+          isExpanded: true,
           value: dropdownValue1,
           icon: const Icon(Icons.arrow_downward),
+          iconSize: 20,
+          iconEnabledColor: Colors.yellow[700],
           elevation: 16,
-          style: const TextStyle(color: Colors.black),
+          style: const TextStyle(
+            color: Colors.black,
+          ),
           underline: Container(
-            height: 2,
+            height: 1,
             color: Colors.yellow[600],
           ),
           onChanged: (String? newValue1) {
@@ -38,7 +47,9 @@ class _WybierzModelState extends State<WybierzModel> {
               value: value1,
               child: RichText(
                 text: TextSpan(
-                    text: value1, style: TextStyle(color: Colors.black)),
+                    text: value1,
+                    style: TextStyle(
+                        color: Colors.black, fontFamily: 'Montserrat')),
               ),
             );
           }).toList(),

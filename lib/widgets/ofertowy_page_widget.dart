@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:genecar/pages/Oferty/add_offer.dart';
 import 'package:genecar/pages/Oferty/chat.dart';
-import 'package:genecar/pages/Oferty/moje_oferty.dart';
+import 'package:genecar/pages/Oferty/moje_konto.dart';
 import 'package:genecar/pages/Oferty/oferty.dart';
 import 'package:genecar/pages/Oferty/ulubione.dart';
 
@@ -37,23 +37,23 @@ class _TesowyPageState extends State<TesowyPage> {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
             label: 'Główna',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.sms),
+            icon: Icon(Icons.sms_outlined),
             label: 'Chat',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle),
+            icon: Icon(Icons.add_circle_outline),
             label: 'Dodaj',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
+            icon: Icon(Icons.favorite_outline),
             label: 'Ulubione',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person_outline),
             label: 'Mój Profil ',
           ),
         ],
