@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class WybierzWersje extends StatefulWidget {
-  const WybierzWersje({Key? key}) : super(key: key);
+class WybierzNadwozie extends StatefulWidget {
+  const WybierzNadwozie({Key? key}) : super(key: key);
 
   @override
-  State<WybierzWersje> createState() => _WybierzWersjeState();
+  State<WybierzNadwozie> createState() => _WybierzNadwozieState();
 }
 
-class _WybierzWersjeState extends State<WybierzWersje> {
+class _WybierzNadwozieState extends State<WybierzNadwozie> {
   String dropdownValue = 'Wybierz';
 
   @override
@@ -17,7 +17,7 @@ class _WybierzWersjeState extends State<WybierzWersje> {
       children: [
         RichText(
           text: TextSpan(
-              text: "Wybierz wersje",
+              text: "Wybierz nadwozie",
               style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'Montserrat',
@@ -40,7 +40,7 @@ class _WybierzWersjeState extends State<WybierzWersje> {
               dropdownValue = newValue1!;
             });
           },
-          items: <String>['Wybierz', 'wersja 1', 'wersja 2 ', ' wersja 3']
+          items: <String>['Wybierz', 'sedan', 'kombi', ' coupe']
               .map<DropdownMenuItem<String>>((String value1) {
             return DropdownMenuItem<String>(
               value: value1,

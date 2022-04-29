@@ -15,15 +15,22 @@ class _WybierzMarkeState extends State<WybierzMarke> {
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         RichText(
           text: TextSpan(
-              text: "Wybierz marke", style: TextStyle(color: Colors.black)),
+              text: "Wybierz marke",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.bold)),
         ),
         DropdownButton<String>(
+          isExpanded: true,
           value: dropdownValue,
           icon: const Icon(Icons.arrow_downward),
+          iconSize: 20,
+          iconEnabledColor: Colors.yellow[700],
           elevation: 16,
           style: const TextStyle(color: Colors.black),
           underline: Container(
-            height: 2,
+            height: 1,
             color: Colors.yellow[600],
           ),
           onChanged: (String? newValue) {
@@ -38,7 +45,10 @@ class _WybierzMarkeState extends State<WybierzMarke> {
               child: RichText(
                 text: TextSpan(
                   text: value,
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Montserrat',
+                  ),
                 ),
               ),
             );

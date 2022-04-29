@@ -18,15 +18,22 @@ class _WybierzGeneracjeState extends State<WybierzGeneracje> {
         children: [
           RichText(
             text: TextSpan(
-                text: "Generacja", style: TextStyle(color: Colors.black)),
+                text: "Generacja",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold)),
           ),
           DropdownButton<String>(
+            iconEnabledColor: Colors.yellow[700],
+            iconSize: 20,
+            isExpanded: true,
             value: dropdownValue,
             icon: const Icon(Icons.arrow_downward),
             elevation: 16,
             style: const TextStyle(color: Colors.black),
             underline: Container(
-              height: 2,
+              height: 1,
               color: Colors.yellow[600],
             ),
             onChanged: (String? newValue1) {
@@ -44,7 +51,9 @@ class _WybierzGeneracjeState extends State<WybierzGeneracje> {
                 value: value1,
                 child: RichText(
                   text: TextSpan(
-                      text: value1, style: TextStyle(color: Colors.black)),
+                      text: value1,
+                      style: TextStyle(
+                          color: Colors.black, fontFamily: 'Montserrat')),
                 ),
               );
             }).toList(),
