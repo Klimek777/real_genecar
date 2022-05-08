@@ -6,11 +6,13 @@ class PostDetailsPage extends StatelessWidget {
   final String image;
   final String author;
   final String date;
+  final String content;
   PostDetailsPage(
       {required this.title,
       required this.image,
       required this.author,
-      required this.date});
+      required this.date,
+      required this.content});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,7 +121,7 @@ class PostDetailsPage extends StatelessWidget {
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.asset(image),
+                child: Image.network(image),
               ),
               const SizedBox(
                 height: 16,
@@ -127,11 +129,10 @@ class PostDetailsPage extends StatelessWidget {
               RichText(
                   text: TextSpan(children: [
                 TextSpan(
-                    text: 'A',
+                    text: content[0],
                     style: TextStyle(color: Colors.black, fontSize: 32)),
                 TextSpan(
-                    text:
-                        'rtykuły serwisu Magazyn Motoryzacyjny przeznaczone są dla wszystkich, którym nie wystarczają powierzchowne informacje zawarte w popularnej prasie i serwisach motoryzacyjnych. W artykułach odnajdziesz rzetelne informacje oraz szczegółowe objaśnienia przedstawione w przyjazny sposób, w czterech grupach tematycznych. Dwie z nich poświęcone są finalnemu pięknu motoryzacji, czyli konkretnym samochodom. Prezentacje samochodów opisuje nowoczesne imponujące pojazdy, natomiast Motoryzacja klasyczna opisuje historyczne ikony motoryzacji. Dla wszystkich, którzy samochody chcą poznać od środka przeznaczone są działy Technika silnikowa oraz Technika samochodowa. Zapraszamy do czytania naszych artykułów!',
+                    text: content.substring(1),
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,
