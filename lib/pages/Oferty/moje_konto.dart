@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:genecar/models/user.dart';
+import 'package:genecar/pages/Oferty/chat.dart';
 import 'package:genecar/pages/Oferty/strony_moje_konto.dart/dane_kontaktowe.dart';
+import 'package:genecar/pages/Oferty/strony_moje_konto.dart/moje_ogloszenia.dart';
 import 'package:genecar/pages/login_page.dart';
 import 'package:provider/provider.dart';
 
@@ -158,104 +160,116 @@ class _MyPageState extends State<MyPage> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.auto_awesome_motion_outlined,
-                            color: Colors.amber[500],
-                            size: 40,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          RichText(
-                            text: TextSpan(
-                              text: 'Moje ogłoszenia',
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => MojeOgloszenia()));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.auto_awesome_motion_outlined,
+                              color: Colors.amber[500],
+                              size: 40,
                             ),
-                          ),
-                        ],
-                      ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                                colors: [
-                                  Colors.yellow[600]!,
-                                  Colors.yellow[700]!
-                                ]),
-                          ),
-                          height: 24,
-                          width: 60,
-                          child: Icon(Icons.navigate_next),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                text: 'Moje ogłoszenia',
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
+                        ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                  colors: [
+                                    Colors.yellow[600]!,
+                                    Colors.yellow[700]!
+                                  ]),
+                            ),
+                            height: 24,
+                            width: 60,
+                            child: Icon(Icons.navigate_next),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.sms_outlined,
-                            color: Colors.amber[500],
-                            size: 40,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          RichText(
-                            text: TextSpan(
-                              text: 'Moje wiadomości',
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => ChatPage()));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.sms_outlined,
+                              color: Colors.amber[500],
+                              size: 40,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                text: 'Moje wiadomości',
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15),
+                              ),
+                            ),
+                          ],
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                  colors: [
+                                    Colors.yellow[600]!,
+                                    Colors.yellow[700]!
+                                  ]),
+                            ),
+                            height: 24,
+                            width: 60,
+                            child: Icon(
+                              Icons.navigate_next,
                             ),
                           ),
-                        ],
-                      ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                                colors: [
-                                  Colors.yellow[600]!,
-                                  Colors.yellow[700]!
-                                ]),
-                          ),
-                          height: 24,
-                          width: 60,
-                          child: Icon(
-                            Icons.navigate_next,
-                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 50),

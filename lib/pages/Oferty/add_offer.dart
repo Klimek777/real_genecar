@@ -106,45 +106,6 @@ class _AddOfferState extends State<AddOffer> {
                 WybierzPojemnosc(),
                 PodajVin(),
                 DodatkoweWyposazenie(),
-                // Padding(
-                //   padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-                //   child: Center(
-                //     child: Container(
-                //       child: Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           crossAxisAlignment: CrossAxisAlignment.center,
-                //           children: [
-                //             Padding(
-                //               padding: const EdgeInsets.all(8.0),
-                //               child: RichText(
-                //                   text: TextSpan(
-                //                       text: "Dodatkowe wyposaenie",
-                //                       style: TextStyle(
-                //                           color: Colors.black,
-                //                           fontFamily: 'Montserrat',
-                //                           fontWeight: FontWeight.normal))),
-                //             ),
-                //             Padding(
-                //               padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-                //               child: Icon(
-                //                 Icons.add,
-                //                 size: 25,
-                //               ),
-                //             ),
-                //           ]),
-                //       height: 50,
-                //       width: MediaQuery.of(context).size.height * 0.4,
-                //       decoration: BoxDecoration(
-                //         borderRadius: BorderRadius.all(Radius.circular(20)),
-                //         color: Colors.grey[50],
-                //         border: Border.all(
-                //             style: BorderStyle.solid,
-                //             color: Colors.yellow[600]!,
-                //             width: 3.5),
-                //       ),
-                //     ),
-                //   ),
-                // ),
                 Center(
                   child: Container(
                     padding: EdgeInsets.all(8),
@@ -207,6 +168,108 @@ class _AddOfferState extends State<AddOffer> {
                     minLines: 5,
                     maxLines: 15,
                   ),
+                ),
+                Column(
+                  children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      RichText(
+                        text: TextSpan(
+                          text: 'Dane Kontaktowe',
+                          style: TextStyle(
+                              color: Colors.black, fontFamily: 'Montserrat'),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(
+                        Icons.edit_outlined,
+                        color: Colors.yellow[600],
+                      )
+                    ]),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                  colors: [
+                                    Colors.yellow[600]!,
+                                    Colors.yellow[700]!
+                                  ]),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: RichText(
+                                text: TextSpan(
+                                  text: 'Numer kontaktowy:',
+                                  style: TextStyle(
+                                      color: Colors.grey[50],
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            text: '+48 000 000 000',
+                            style: TextStyle(
+                                color: Colors.black, fontFamily: 'Montserrat'),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                  colors: [
+                                    Colors.yellow[600]!,
+                                    Colors.yellow[700]!
+                                  ]),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: RichText(
+                                text: TextSpan(
+                                  text: 'Adres e-mail:',
+                                  style: TextStyle(
+                                      color: Colors.grey[50],
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            text: 'adres@adresmailowy.pl',
+                            style: TextStyle(
+                                color: Colors.black, fontFamily: 'Montserrat'),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
