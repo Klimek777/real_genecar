@@ -220,6 +220,7 @@ class _BlogState extends State<Blog> {
                           );
                         }
                         return ListView.builder(
+                          reverse: true,
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: snapshot.data!.docs.length,
