@@ -6,10 +6,15 @@ import 'package:intl/intl.dart';
 
 final _format = new DateFormat('dd.MM.yyyy HH:MM');
 
-class PostCard extends StatelessWidget {
+class PostCard extends StatefulWidget {
   final snap;
   const PostCard({Key? key, required this.snap}) : super(key: key);
 
+  @override
+  State<PostCard> createState() => _PostCardState();
+}
+
+class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -22,26 +27,48 @@ class PostCard extends StatelessWidget {
             );
           }
           return PostCellWidget(
-              title: snap['title'],
-              image: snap['photoUrl'],
+              title: widget.snap['title'],
+              image: widget.snap['photoUrl'],
               author: ((snapshot.data?.docs
-                      .where((element) => element.id == snap['uid'])
+                      .where((element) => element.id == widget.snap['uid'])
                       .first)!['name'])
                   .toString(),
-              date: (_format.format(snap['datePublished'].toDate())).toString(),
+              date: (_format.format(widget.snap['datePublished'].toDate()))
+                  .toString(),
               onClick: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (_) => PostDetailsPage(
-                    title: snap['title'],
-                    image: snap['photoUrl'],
-                    author: ((snapshot.data?.docs
-                            .where((element) => element.id == snap['uid'])
-                            .first)!['name'])
-                        .toString(),
-                    date: (_format.format(snap['datePublished'].toDate()))
-                        .toString(),
-                    content: snap['content'],
-                  ),
+                  builder: (_) => StreamBuilder(
+                      stream: FirebaseFirestore.instance
+                          .collection('posts')
+                          .snapshots(),
+                      builder: (context,
+                          AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                              snapshot_2) {
+                        return PostDetailsPage(
+                          likesNum: snapshot_2.data?.docs
+                              .where((element) =>
+                                  element.id == widget.snap['postID'])
+                              .first
+                              .data()['likes']
+                              .length,
+                          snap: snapshot_2.data?.docs
+                              .where((element) =>
+                                  element.id == widget.snap['postID'])
+                              .first
+                              .data(),
+                          title: widget.snap['title'],
+                          image: widget.snap['photoUrl'],
+                          author: ((snapshot.data?.docs
+                                  .where((element) =>
+                                      element.id == widget.snap['uid'])
+                                  .first)!['name'])
+                              .toString(),
+                          date: (_format.format(
+                                  widget.snap['datePublished'].toDate()))
+                              .toString(),
+                          content: widget.snap['content'],
+                        );
+                      }),
                 ));
               });
         });

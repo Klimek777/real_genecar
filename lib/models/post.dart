@@ -9,7 +9,7 @@ class Post {
   final datePublished;
   final String photoUrl;
   final int viewsNum;
-  final int likesNum;
+  final List likes;
 
   const Post({
     required this.uid,
@@ -19,7 +19,7 @@ class Post {
     required this.datePublished,
     required this.photoUrl,
     required this.viewsNum,
-    required this.likesNum,
+    required this.likes,
   });
   Map<String, dynamic> toJson() => {
         "uid": uid,
@@ -29,7 +29,7 @@ class Post {
         "datePublished": datePublished,
         "photoUrl": photoUrl,
         "viewsNum": viewsNum,
-        "likesNum": likesNum,
+        "likes": likes,
       };
   static Post fromSnap(DocumentSnapshot snap) {
     var snapshot = snap.data() as Map<String, dynamic>;
@@ -42,7 +42,7 @@ class Post {
       datePublished: snapshot['datePublished'],
       photoUrl: snapshot['photoUrl'],
       viewsNum: snapshot['viewsNum'],
-      likesNum: snapshot['likesNum'],
+      likes: snapshot['likes'],
     );
   }
 }

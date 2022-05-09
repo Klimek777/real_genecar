@@ -51,7 +51,7 @@ class FirestoreMethods {
           datePublished: DateTime.now(),
           photoUrl: photoUrl,
           viewsNum: 1000,
-          likesNum: 200);
+          likes: []);
 
       _firestore.collection('posts').doc(postID).set(post.toJson());
       res = "Success!";
@@ -59,5 +59,23 @@ class FirestoreMethods {
       res = err.toString();
     }
     return res;
+  }
+
+  Future<void> likePost(String postId, String uid, List likes) async {
+    try {
+      if (likes.contains(uid)) {
+        await _fireStore.collection('posts').doc(postId).update({
+          'likes': FieldValue.arrayRemove([uid]),
+        });
+      } else {
+        await _fireStore.collection('posts').doc(postId).update({
+          'likes': FieldValue.arrayUnion([uid]),
+        });
+      }
+    } catch (e) {
+      print(
+        e.toString(),
+      );
+    }
   }
 }

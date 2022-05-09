@@ -1,18 +1,33 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:genecar/pages/Blog/blog.dart';
+import 'package:genecar/resources/firestore_methods.dart';
 
-class PostDetailsPage extends StatelessWidget {
+class PostDetailsPage extends StatefulWidget {
+  final snap;
+  final likesNum;
   final String title;
   final String image;
   final String author;
   final String date;
   final String content;
   PostDetailsPage(
-      {required this.title,
+      {Key? key,
+      required this.snap,
+      required this.likesNum,
+      required this.title,
       required this.image,
       required this.author,
       required this.date,
       required this.content});
+
+  @override
+  State<PostDetailsPage> createState() => _PostDetailsPageState();
+}
+
+class _PostDetailsPageState extends State<PostDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +67,7 @@ class PostDetailsPage extends StatelessWidget {
           child: ListView(
             children: [
               Text(
-                title,
+                widget.title,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 32,
@@ -63,9 +78,9 @@ class PostDetailsPage extends StatelessWidget {
                 crossAxisAlignment: WrapCrossAlignment.center,
                 alignment: WrapAlignment.start,
                 children: [
-                  Text('$author, '),
+                  Text('${widget.author}, '),
                   Text(
-                    date,
+                    widget.date,
                     style: TextStyle(color: Colors.grey),
                   )
                 ],
@@ -106,12 +121,24 @@ class PostDetailsPage extends StatelessWidget {
                         size: 16,
                       ),
                       Text(
-                        '106 polubień',
+                        '${widget.likesNum} polubień',
                         style: TextStyle(
                             color: Colors.grey,
                             fontSize: 16,
                             fontWeight: FontWeight.w100),
-                      )
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.bookmark_add_outlined),
+                        onPressed: () async {
+                          await FirestoreMethods().likePost(
+                              widget.snap['postID'],
+                              FirebaseAuth.instance.currentUser!.uid,
+                              widget.snap['likes']);
+                        },
+                        color: Colors.grey,
+                        iconSize: 28,
+                        splashRadius: 24,
+                      ),
                     ],
                   ),
                 ],
@@ -121,7 +148,7 @@ class PostDetailsPage extends StatelessWidget {
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.network(image),
+                child: Image.network(widget.image),
               ),
               const SizedBox(
                 height: 16,
@@ -129,10 +156,10 @@ class PostDetailsPage extends StatelessWidget {
               RichText(
                   text: TextSpan(children: [
                 TextSpan(
-                    text: content[0],
+                    text: widget.content[0],
                     style: TextStyle(color: Colors.black, fontSize: 32)),
                 TextSpan(
-                    text: content.substring(1),
+                    text: widget.content.substring(1),
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,

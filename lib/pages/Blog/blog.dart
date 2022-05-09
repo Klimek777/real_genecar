@@ -101,6 +101,7 @@ class _BlogState extends State<Blog> {
             text: TextSpan(
               text: 'Blog',
               style: TextStyle(
+                  color: Colors.white,
                   letterSpacing: 2.0,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Montserrat',
