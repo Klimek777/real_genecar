@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:genecar/models/user.dart';
 import 'package:genecar/providers/user_provider.dart';
@@ -17,6 +18,34 @@ class BlogAddPost extends StatefulWidget {
 }
 
 class _BlogAddPostState extends State<BlogAddPost> {
+  List<String> getCategories() {
+    List<String> categories = [
+      'Motoryzacja klasyczna',
+      'Silniki',
+      'Koncerny motoryzacyjne',
+      'Prezentacje',
+      'Recenzje',
+      'Awarie i naprawy',
+      'Ciekawostki',
+      'Wypadki',
+      'Wydarzenia z branży',
+      'Sport samochodowy',
+    ];
+    categories.sort();
+    categories.add('Inne');
+    return categories;
+  }
+
+  String? category;
+
+  DropdownMenuItem<String> buildMenuCategory(String category) =>
+      DropdownMenuItem(
+        value: category,
+        child: Text(
+          category,
+        ),
+      );
+
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _contentController = TextEditingController();
   @override
@@ -113,6 +142,23 @@ class _BlogAddPostState extends State<BlogAddPost> {
         child: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Column(children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButton<String>(
+                underline: Container(
+                  color: Colors.amberAccent,
+                  height: 2.0,
+                ),
+                hint: Text('Wybierz kategorię'),
+                iconEnabledColor: Colors.amberAccent,
+                isExpanded: true,
+                value: category,
+                items: getCategories().map(buildMenuCategory).toList(),
+                onChanged: (value) => setState(() {
+                  this.category = value;
+                }),
+              ),
+            ),
             TextFieldInput(
               labelText: 'Tytuł',
               textEditingController: _titleController,

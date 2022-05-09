@@ -12,7 +12,14 @@ class _UslugiState extends State<Uslugi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow[600],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
+          ),
+        ),
         title: const Text(
           'Usługi',
           style: TextStyle(letterSpacing: 2.0, fontWeight: FontWeight.bold),

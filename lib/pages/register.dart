@@ -60,6 +60,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: const Text(
             'Rejestracja',
@@ -75,6 +76,7 @@ class _RegisterState extends State<Register> {
           ),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -142,43 +144,40 @@ class _RegisterState extends State<Register> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
-              child: TextButton(
-                onPressed: registerUser,
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: _isLoading
-                        ? [
-                            Center(
-                              child: CircularProgressIndicator(),
-                            )
-                          ]
-                        : [
-                            Text(
-                              'Zarejestruj',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 23.0,
-                                letterSpacing: 2.0,
-                              ),
+            TextButton(
+              onPressed: registerUser,
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: _isLoading
+                      ? [
+                          Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        ]
+                      : [
+                          Text(
+                            'Zarejestruj',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23.0,
+                              letterSpacing: 2.0,
                             ),
-                          ],
+                          ),
+                        ],
+                ),
+                height: 50,
+                width: 250,
+                decoration: BoxDecoration(
+                  color: Colors.yellow[600],
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15),
                   ),
-                  height: 50,
-                  width: 250,
-                  decoration: BoxDecoration(
-                    color: Colors.yellow[600],
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                    gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
-                  ),
+                  gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [Colors.yellow[600]!, Colors.yellow[700]!]),
                 ),
               ),
             ),

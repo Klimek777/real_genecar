@@ -44,6 +44,7 @@ class _login_pageState extends State<login_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
           flexibleSpace: Container(
@@ -60,116 +61,136 @@ class _login_pageState extends State<login_page> {
           ),
         ),
         body: SafeArea(
-          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
-              child: Center(
-                child: Image(
-                  width: 250.0,
-                  height: 250.0,
-                  image: AssetImage('assets/logo_car.png'),
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
-                    child: Padding(
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                  child: TextFieldInput(
-                      labelText: 'E-mail',
-                      textEditingController: _emailController,
-                      hintText: 'Wprowadź swój e-mail',
-                      textInputType: TextInputType.emailAddress),
-                )),
-              ],
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                    child: Padding(
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                  child: TextFieldInput(
-                    labelText: 'Hasło',
-                    textEditingController: _passwordController,
-                    hintText: 'Wprowadź swoje hasło',
-                    textInputType: TextInputType.text,
-                    isPass: true,
-                  ),
-                )),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
-              child: TextButton(
-                onPressed: loginUser,
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: _isLoading
-                        ? [
-                            Center(
-                              child: CircularProgressIndicator(),
-                            )
-                          ]
-                        : [
-                            // ignore: prefer_const_constructors
-                            Text(
-                              'Zaloguj',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 23.0,
-                                letterSpacing: 2.0,
-                              ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                  child: Center(
+                    child: AspectRatio(
+                      aspectRatio: 200 / 100,
+                      child: Padding(
+                        padding: const EdgeInsets.all(40.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.fitWidth,
+                              alignment: FractionalOffset.center,
+                              image: AssetImage('assets/logo_car.png'),
                             ),
-                          ],
-                  ),
-                  height: 50,
-                  width: 250,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [Colors.yellow[600]!, Colors.yellow[700]!],
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Nie masz konta?',
-                  style: TextStyle(fontSize: 16.5, fontWeight: FontWeight.w400),
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                            child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          child: TextFieldInput(
+                              labelText: 'E-mail',
+                              textEditingController: _emailController,
+                              hintText: 'Wprowadź swój e-mail',
+                              textInputType: TextInputType.emailAddress),
+                        )),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                            child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          child: TextFieldInput(
+                            labelText: 'Hasło',
+                            textEditingController: _passwordController,
+                            hintText: 'Wprowadź swoje hasło',
+                            textInputType: TextInputType.text,
+                            isPass: true,
+                          ),
+                        )),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
+                      child: TextButton(
+                        onPressed: loginUser,
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: _isLoading
+                                ? [
+                                    Center(
+                                      child: CircularProgressIndicator(),
+                                    )
+                                  ]
+                                : [
+                                    // ignore: prefer_const_constructors
+                                    Text(
+                                      'Zaloguj',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 23.0,
+                                        letterSpacing: 2.0,
+                                      ),
+                                    ),
+                                  ],
+                          ),
+                          height: 50,
+                          width: 250,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: [
+                                Colors.yellow[600]!,
+                                Colors.yellow[700]!
+                              ],
+                            ),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(15),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => Register()));
-                    },
-                    child: Text(
-                      'Zarejestruj się!',
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Nie masz konta?',
                       style: TextStyle(
-                          fontSize: 16.5,
-                          color: Colors.yellow[600],
-                          fontWeight: FontWeight.bold),
-                    ))
-              ],
-            ),
-          ]),
+                          fontSize: 16.5, fontWeight: FontWeight.w400),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Register()));
+                        },
+                        child: Text(
+                          'Zarejestruj się!',
+                          style: TextStyle(
+                              fontSize: 16.5,
+                              color: Colors.yellow[600],
+                              fontWeight: FontWeight.bold),
+                        ))
+                  ],
+                ),
+              ]),
         ));
   }
 }

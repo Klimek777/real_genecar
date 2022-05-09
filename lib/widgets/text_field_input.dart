@@ -21,6 +21,7 @@ class TextFieldInput extends StatelessWidget {
     return TextField(
       controller: textEditingController,
       decoration: InputDecoration(
+        isDense: true,
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.amberAccent, width: 2.0),
         ),

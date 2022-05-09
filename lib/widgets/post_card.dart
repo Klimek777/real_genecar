@@ -4,7 +4,7 @@ import 'package:genecar/widgets/post_cell_widget.dart';
 import 'package:genecar/pages/Blog/post_details_page.dart';
 import 'package:intl/intl.dart';
 
-final _format = new DateFormat('dd.MM.yyyy HH:MM');
+final _format = new DateFormat('dd.MM.yyyy HH:mm');
 
 class PostCard extends StatefulWidget {
   final snap;
