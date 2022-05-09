@@ -190,6 +190,9 @@ class _login_pageState extends State<login_page> {
                         ))
                   ],
                 ),
+                SizedBox(
+                  height: 30.0,
+                )
               ]),
         ));
   }

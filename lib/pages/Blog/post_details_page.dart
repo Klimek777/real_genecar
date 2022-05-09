@@ -165,7 +165,10 @@ class _PostDetailsPageState extends State<PostDetailsPage> {
                         fontSize: 18,
                         height: 1.5,
                         wordSpacing: 2)),
-              ]))
+              ])),
+              SizedBox(
+                height: 50.0,
+              )
             ],
           ),
         ),

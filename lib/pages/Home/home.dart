@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       RichText(
                         text: TextSpan(
-                          text: 'Znajdz Auto',
+                          text: 'Znajdź Auto',
                           style: TextStyle(
                               color: Colors.grey[50],
                               fontWeight: FontWeight.bold,
