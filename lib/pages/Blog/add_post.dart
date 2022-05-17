@@ -168,8 +168,53 @@ class _BlogAddPostState extends State<BlogAddPost> {
                   hintText: 'Wprowadź tytuł posta',
                   textInputType: TextInputType.text,
                 ),
+                SizedBox(
+                  height: 20.0,
+                ),
                 _file == null
                     ? Center(
+                        child: GestureDetector(
+                          onTap: () {
+                            _selectImage(context);
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                  colors: [
+                                    Colors.yellow[600]!,
+                                    Colors.yellow[700]!
+                                  ]),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                  child: RichText(
+                                      text: TextSpan(
+                                          text: "Dodaj zdjęcie",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontFamily: 'Montserrat',
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15))),
+                                ),
+                                Icon(
+                                  Icons.add_a_photo,
+                                  color: Colors.white,
+                                  size: 30,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+
+                    /*Center(
                         child: SizedBox(
                           width: 200,
                           height: 150,
@@ -182,7 +227,7 @@ class _BlogAddPostState extends State<BlogAddPost> {
                             onPressed: () => _selectImage(context),
                           ),
                         ),
-                      )
+                      )*/
                     : AspectRatio(
                         aspectRatio: 87 / 50,
                         child: Padding(
@@ -197,6 +242,9 @@ class _BlogAddPostState extends State<BlogAddPost> {
                           ),
                         ),
                       ),
+                SizedBox(
+                  height: 20.0,
+                ),
                 TextField(
                   controller: _contentController,
                   decoration: InputDecoration(

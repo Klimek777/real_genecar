@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class WybierzCzyZarejestrowany extends StatefulWidget {
-  const WybierzCzyZarejestrowany({Key? key}) : super(key: key);
+  final Function(String) onChanged;
+  const WybierzCzyZarejestrowany({Key? key, required this.onChanged})
+      : super(key: key);
 
   @override
   State<WybierzCzyZarejestrowany> createState() =>
@@ -35,9 +37,10 @@ class _WybierzCzyZarejestrowanyState extends State<WybierzCzyZarejestrowany> {
             height: 1,
             color: Colors.yellow[600],
           ),
-          onChanged: (String? newValue1) {
+          onChanged: (String? newValue) {
+            widget.onChanged(newValue!);
             setState(() {
-              dropdownValue = newValue1!;
+              dropdownValue = newValue;
             });
           },
           items: <String>[

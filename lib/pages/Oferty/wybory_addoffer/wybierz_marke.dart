@@ -1,21 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:genecar/pages/Oferty/wybory_addoffer/wybierz_moc.dart';
+import 'package:genecar/pages/Oferty/wybory_addoffer/wybierz_model.dart';
+
+List<String> marksList = ['Wybierz'];
+String dropdownValue = 'Wybierz';
 
 class WybierzMarke extends StatefulWidget {
-  const WybierzMarke({Key? key}) : super(key: key);
-
+  final Function(String) onChanged;
+  WybierzMarke({Key? key, required this.onChanged}) : super(key: key);
   @override
   State<WybierzMarke> createState() => _WybierzMarkeState();
 }
 
 class _WybierzMarkeState extends State<WybierzMarke> {
-  String dropdownValue = 'Wybierz';
+  @override
+  void initState() {
+    super.initState();
+    getMarks();
+  }
+
+  void getMarks() async {
+    marksList = ['Wybierz'];
+    DocumentSnapshot snap =
+        await FirebaseFirestore.instance.collection('marks').doc('marks').get();
+    setState(() {
+      for (String mark in snap.get('marksList')) {
+        marksList.add(mark);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         RichText(
           text: TextSpan(
-              text: "Wybierz marke",
+              text: "Wybierz markę",
               style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'Montserrat',
@@ -34,12 +57,12 @@ class _WybierzMarkeState extends State<WybierzMarke> {
             color: Colors.yellow[600],
           ),
           onChanged: (String? newValue) {
+            widget.onChanged(newValue!);
             setState(() {
-              dropdownValue = newValue!;
+              dropdownValue = newValue;
             });
           },
-          items: <String>['Wybierz', 'Audi', 'Mercedes', 'BMW']
-              .map<DropdownMenuItem<String>>((String value) {
+          items: marksList.map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,
               child: RichText(

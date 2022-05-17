@@ -1,15 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class WybierzGeneracje extends StatefulWidget {
-  const WybierzGeneracje({Key? key}) : super(key: key);
+  List<String> generations;
+  final Function(String) onChanged;
+  WybierzGeneracje(
+      {Key? key, required this.onChanged, required this.generations})
+      : super(key: key);
 
   @override
   State<WybierzGeneracje> createState() => _WybierzGeneracjeState();
 }
 
-class _WybierzGeneracjeState extends State<WybierzGeneracje> {
-  String dropdownValue = 'Wybierz';
+bool getting = false;
+String dropdownValue = 'Wybierz';
 
+Future<List<String>> getGenerations(String mark, String model) async {
+  getting = true;
+  dropdownValue = 'Wybierz';
+  List<String> generationsListCopy = ['Wybierz'];
+  DocumentSnapshot snap = await FirebaseFirestore.instance
+      .collection('marks')
+      .doc(mark)
+      .collection(model)
+      .doc('generations')
+      .get();
+
+  for (String generation in snap.get('generations')) {
+    generationsListCopy.add(generation);
+  }
+  getting = false;
+
+  return generationsListCopy;
+}
+
+class _WybierzGeneracjeState extends State<WybierzGeneracje> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -36,17 +62,14 @@ class _WybierzGeneracjeState extends State<WybierzGeneracje> {
               height: 1,
               color: Colors.yellow[600],
             ),
-            onChanged: (String? newValue1) {
+            onChanged: (String? newValue) {
+              widget.onChanged(newValue!);
               setState(() {
-                dropdownValue = newValue1!;
+                dropdownValue = newValue;
               });
             },
-            items: <String>[
-              'Wybierz',
-              'Generacja 1',
-              'Generacja 2',
-              'Generacja 3'
-            ].map<DropdownMenuItem<String>>((String value1) {
+            items: widget.generations
+                .map<DropdownMenuItem<String>>((String value1) {
               return DropdownMenuItem<String>(
                 value: value1,
                 child: RichText(

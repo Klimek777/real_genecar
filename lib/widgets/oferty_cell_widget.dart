@@ -204,13 +204,19 @@ class _OfertyCellWidgetState extends State<OfertyCellWidget> {
                         //TODO naprawic gesture detector
                         child: GestureDetector(
                           onTap: (() {
-                            SetState() {
-                              favourite = true;
-                            }
+                            if (favourite == false) {
+                              setState(() {
+                                favourite = true;
+                              });
 
-                            if (favourite = true) {
                               print('dziala');
+                            } else {
+                              setState(() {
+                                favourite = false;
+                              });
+                              print('nie dziala');
                             }
+                            print('klik');
                           }),
                           child: Container(
                             decoration: BoxDecoration(
@@ -228,10 +234,9 @@ class _OfertyCellWidgetState extends State<OfertyCellWidget> {
                             padding: const EdgeInsets.symmetric(horizontal: 4),
                             height: 30,
                             width: 50,
-                            child: ClipRRect(
-                                child: favourite
-                                    ? Icon(Icons.star)
-                                    : Icon(Icons.star_border_outlined)),
+                            child: favourite
+                                ? Icon(Icons.star)
+                                : Icon(Icons.star_border_outlined),
                           ),
                         ),
                       ),

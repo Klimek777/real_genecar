@@ -1,14 +1,40 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:genecar/pages/Oferty/add_offer.dart';
+
+bool getting = false;
+String dropdownValue1 = 'Wybierz';
 
 class WybierzModel extends StatefulWidget {
-  const WybierzModel({Key? key}) : super(key: key);
-
+  List<String> models;
+  final Function(String) onChanged;
+  WybierzModel({Key? key, required this.onChanged, required this.models})
+      : super(key: key);
   @override
   State<WybierzModel> createState() => _WybierzModelState();
 }
 
+Future<List<String>> getModels(String mark) async {
+  getting = true;
+  dropdownValue1 = 'Wybierz';
+  List<String> modelsListCopy = ['Wybierz'];
+  DocumentSnapshot snap = await FirebaseFirestore.instance
+      .collection('marks')
+      .doc(mark)
+      .collection('models')
+      .doc('models')
+      .get();
+
+  for (String mark in snap.get('models')) {
+    modelsListCopy.add(mark);
+  }
+  getting = false;
+  return modelsListCopy;
+}
+
 class _WybierzModelState extends State<WybierzModel> {
-  String dropdownValue1 = 'Wybierz';
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,6 +49,7 @@ class _WybierzModelState extends State<WybierzModel> {
                   fontWeight: FontWeight.bold)),
         ),
         DropdownButton<String>(
+          onTap: () {},
           isExpanded: true,
           value: dropdownValue1,
           icon: const Icon(Icons.arrow_downward),
@@ -36,13 +63,13 @@ class _WybierzModelState extends State<WybierzModel> {
             height: 1,
             color: Colors.yellow[600],
           ),
-          onChanged: (String? newValue1) {
+          onChanged: (String? newValue) {
+            widget.onChanged(newValue!);
             setState(() {
-              dropdownValue1 = newValue1!;
+              dropdownValue1 = newValue;
             });
           },
-          items: <String>['Wybierz', 'Model 1', 'Model 2', 'Model 3']
-              .map<DropdownMenuItem<String>>((String value1) {
+          items: widget.models.map<DropdownMenuItem<String>>((String value1) {
             return DropdownMenuItem<String>(
               value: value1,
               child: RichText(

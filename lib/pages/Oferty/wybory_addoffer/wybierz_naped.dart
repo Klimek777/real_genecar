@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class WybierzNaped extends StatefulWidget {
-  const WybierzNaped({Key? key}) : super(key: key);
+  final Function(String) onChanged;
+  const WybierzNaped({Key? key, required this.onChanged}) : super(key: key);
 
   @override
   State<WybierzNaped> createState() => _WybierzNapedState();
@@ -35,9 +36,10 @@ class _WybierzNapedState extends State<WybierzNaped> {
             height: 1,
             color: Colors.yellow[600],
           ),
-          onChanged: (String? newValue1) {
+          onChanged: (String? newValue) {
+            widget.onChanged(newValue!);
             setState(() {
-              dropdownValue = newValue1!;
+              dropdownValue = newValue;
             });
           },
           items: <String>['Wybierz', 'przód', 'tył ', '4 x 4 ']

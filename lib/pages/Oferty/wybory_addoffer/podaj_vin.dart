@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PodajVin extends StatefulWidget {
-  const PodajVin({Key? key}) : super(key: key);
+  TextEditingController controller = TextEditingController();
+  PodajVin({Key? key, required this.controller}) : super(key: key);
 
   @override
   State<PodajVin> createState() => _PodajVinState();
@@ -13,6 +14,7 @@ class _PodajVinState extends State<PodajVin> {
     return Padding(
       padding: const EdgeInsets.fromLTRB(60, 10, 60, 0),
       child: TextField(
+        controller: widget.controller,
         decoration: InputDecoration(
             labelStyle: TextStyle(color: Colors.black),
             fillColor: Colors.black,

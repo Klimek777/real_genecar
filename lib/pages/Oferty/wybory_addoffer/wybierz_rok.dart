@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:genecar/main.dart';
 
 class WybierzRok extends StatefulWidget {
-  const WybierzRok({Key? key}) : super(key: key);
+  final Function(String) onChanged;
+  const WybierzRok({Key? key, required this.onChanged}) : super(key: key);
 
   @override
   State<WybierzRok> createState() => _WybierzRokState();
@@ -39,8 +40,9 @@ class _WybierzRokState extends State<WybierzRok> {
               color: Colors.yellow[600],
             ),
             onChanged: (String? newValue) {
+              widget.onChanged(newValue!);
               setState(() {
-                dropdownValue = newValue!;
+                dropdownValue = newValue;
               });
             },
             items: <String>[

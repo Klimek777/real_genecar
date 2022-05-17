@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class WybierzWersje extends StatefulWidget {
-  const WybierzWersje({Key? key}) : super(key: key);
+  final Function(String) onChanged;
+  const WybierzWersje({Key? key, required this.onChanged}) : super(key: key);
 
   @override
   State<WybierzWersje> createState() => _WybierzWersjeState();
@@ -35,9 +36,10 @@ class _WybierzWersjeState extends State<WybierzWersje> {
             height: 1,
             color: Colors.yellow[600],
           ),
-          onChanged: (String? newValue1) {
+          onChanged: (String? newValue) {
+            widget.onChanged(newValue!);
             setState(() {
-              dropdownValue = newValue1!;
+              dropdownValue = newValue;
             });
           },
           items: <String>['Wybierz', 'wersja 1', 'wersja 2 ', ' wersja 3']
