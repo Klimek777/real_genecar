@@ -20,6 +20,7 @@ import 'package:genecar/pages/Oferty/wybory_addoffer/wybierz_rok.dart';
 import 'package:genecar/pages/Oferty/wybory_addoffer/wybierz_skrzynie.dart';
 import 'package:genecar/pages/Oferty/wybory_addoffer/wybierz_stan.dart';
 import 'package:genecar/pages/Oferty/wybory_addoffer/wybierz_wersje.dart';
+import 'package:genecar/widgets/edit_contact_info.dart';
 
 class AddOffer extends StatefulWidget {
   const AddOffer({Key? key}) : super(key: key);
@@ -29,6 +30,7 @@ class AddOffer extends StatefulWidget {
 }
 
 class _AddOfferState extends State<AddOffer> {
+  bool change = false;
   String dropdownValue = 'Wybierz';
   String dropdownValue1 = 'Wybierz';
   String username = "";
@@ -182,9 +184,16 @@ class _AddOfferState extends State<AddOffer> {
                       SizedBox(
                         width: 10,
                       ),
-                      Icon(
-                        Icons.edit_outlined,
-                        color: Colors.yellow[600],
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            change = true;
+                          });
+                        },
+                        child: Icon(
+                          Icons.edit_outlined,
+                          color: Colors.yellow[600],
+                        ),
                       )
                     ]),
                     SizedBox(
@@ -219,56 +228,48 @@ class _AddOfferState extends State<AddOffer> {
                             ),
                           ),
                         ),
-                        RichText(
-                          text: TextSpan(
-                            text: '+48 000 000 000',
-                            style: TextStyle(
-                                color: Colors.black, fontFamily: 'Montserrat'),
-                          ),
+                        SizedBox(
+                          width: 20,
                         ),
+                        Flexible(
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                change = true;
+                              });
+                            },
+                            child: TextFormField(
+                              cursorColor: Colors.black,
+                              decoration: InputDecoration(
+                                focusedBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.yellow[600]!)),
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.yellow[600]!)),
+                                border: change
+                                    ? UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.yellow[600]!))
+                                    : InputBorder.none,
+                                enabled: change,
+                              ),
+                              initialValue: '+ 48 000 000 000',
+                            ),
+                          ),
+                        )
+                        // RichText(
+                        //   text: TextSpan(
+                        //     text: '+48 000 000 000',
+                        //     style: TextStyle(
+                        //         color: Colors.black, fontFamily: 'Montserrat'),
+                        //   ),
+                        // ),
                       ],
                     ),
                     SizedBox(
                       height: 10,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Colors.yellow[600]!,
-                                    Colors.yellow[700]!
-                                  ]),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: RichText(
-                                text: TextSpan(
-                                  text: 'Adres e-mail:',
-                                  style: TextStyle(
-                                      color: Colors.grey[50],
-                                      fontFamily: 'Montserrat',
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            text: 'adres@adresmailowy.pl',
-                            style: TextStyle(
-                                color: Colors.black, fontFamily: 'Montserrat'),
-                          ),
-                        ),
-                      ],
-                    )
                   ],
                 ),
                 Padding(
