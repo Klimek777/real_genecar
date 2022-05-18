@@ -35,7 +35,7 @@ class Post {
     var snapshot = snap.data() as Map<String, dynamic>;
 
     return Post(
-      uid: snapshot['email'],
+      uid: snapshot['uid'],
       title: snapshot['title'],
       content: snapshot['content'],
       postID: snapshot['postID'],

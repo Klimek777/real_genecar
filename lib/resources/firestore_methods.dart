@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:genecar/models/offer.dart';
 import 'package:genecar/models/post.dart';
 import 'package:genecar/pages/Blog/blog.dart';
 import 'package:genecar/resources/storage_methods.dart';
@@ -54,6 +55,82 @@ class FirestoreMethods {
           likes: []);
 
       _firestore.collection('posts').doc(postID).set(post.toJson());
+      res = "Success!";
+    } catch (err) {
+      res = err.toString();
+    }
+    return res;
+  }
+
+  Future<String> uploadOffer(
+    String uid,
+    String offerID,
+    String recommended,
+    String mark,
+    String model,
+    String prodYear,
+    String generation,
+    String seatsNum,
+    String category,
+    String fuel,
+    String color,
+    String gearbox,
+    String drive,
+    String condition,
+    String version,
+    String registeredPL,
+    String body,
+    int price,
+    int ccm,
+    int horses,
+    int mileage,
+    String vin,
+    List additional,
+    Uint8List photos,
+    String description,
+    String phoneNum,
+    datePublished,
+    int viewsNum,
+  ) async {
+    String res = "Some error occured!";
+    try {
+      String photoUrl =
+          await StorageMethods().uploadOfferToStorage('offers', photos, true);
+
+      String postID = Uuid().v1();
+
+      Offer post = Offer(
+        uid: uid,
+        offerID: offerID,
+        recommended: recommended,
+        mark: mark,
+        model: model,
+        prodYear: prodYear,
+        generation: generation,
+        seatsNum: seatsNum,
+        category: category,
+        fuel: fuel,
+        color: color,
+        gearbox: gearbox,
+        drive: drive,
+        condition: condition,
+        version: version,
+        registeredPL: registeredPL,
+        body: body,
+        price: price,
+        ccm: ccm,
+        horses: horses,
+        mileage: mileage,
+        vin: vin,
+        additional: additional,
+        photos: photos,
+        description: description,
+        phoneNum: phoneNum,
+        datePublished: datePublished,
+        viewsNum: viewsNum,
+      );
+
+      _firestore.collection('offers').doc(postID).set(post.toJson());
       res = "Success!";
     } catch (err) {
       res = err.toString();

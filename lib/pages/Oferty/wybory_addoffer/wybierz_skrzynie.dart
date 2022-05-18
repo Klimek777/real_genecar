@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class WybierzSkrzynie extends StatefulWidget {
-  const WybierzSkrzynie({Key? key}) : super(key: key);
+  final Function(String) onChanged;
+  const WybierzSkrzynie({Key? key, required this.onChanged}) : super(key: key);
 
   @override
   State<WybierzSkrzynie> createState() => _WybierzSkrzynieState();
@@ -37,8 +38,9 @@ class _WybierzSkrzynieState extends State<WybierzSkrzynie> {
               color: Colors.yellow[600],
             ),
             onChanged: (String? newValue) {
+              widget.onChanged(newValue!);
               setState(() {
-                dropdownValue = newValue!;
+                dropdownValue = newValue;
               });
             },
             items: <String>['wybierz', 'automat', 'manual']

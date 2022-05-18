@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class WybierzIloscMiejsc extends StatefulWidget {
-  const WybierzIloscMiejsc({Key? key}) : super(key: key);
+  final Function(String) onChanged;
+  const WybierzIloscMiejsc({Key? key, required this.onChanged})
+      : super(key: key);
 
   @override
   State<WybierzIloscMiejsc> createState() => _WybierzIloscMiejscState();
@@ -35,9 +37,10 @@ class _WybierzIloscMiejscState extends State<WybierzIloscMiejsc> {
             height: 1,
             color: Colors.yellow[600],
           ),
-          onChanged: (String? newValue1) {
+          onChanged: (String? newValue) {
+            widget.onChanged(newValue!);
             setState(() {
-              dropdownValue = newValue1!;
+              dropdownValue = newValue;
             });
           },
           items: <String>[

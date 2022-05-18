@@ -65,7 +65,7 @@ class _DodatkoweWyposazenieState extends State<DodatkoweWyposazenie> {
                           ),
                           RichText(
                               text: TextSpan(
-                                  text: 'Czujniki\n parkowania ',
+                                  text: 'Czujniki\nparkowania ',
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontFamily: 'Montserrat')))
@@ -87,7 +87,7 @@ class _DodatkoweWyposazenieState extends State<DodatkoweWyposazenie> {
                           ),
                           RichText(
                               text: TextSpan(
-                                  text: 'Skórzana \n tapicerka',
+                                  text: 'Skórzana\ntapicerka',
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontFamily: 'Montserrat')))
@@ -113,7 +113,7 @@ class _DodatkoweWyposazenieState extends State<DodatkoweWyposazenie> {
                           ),
                           RichText(
                               text: TextSpan(
-                                  text: 'Czujniki\n deszczu',
+                                  text: 'Czujniki\ndeszczu',
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontFamily: 'Montserrat')))
@@ -134,7 +134,7 @@ class _DodatkoweWyposazenieState extends State<DodatkoweWyposazenie> {
                           ),
                           RichText(
                               text: TextSpan(
-                                  text: 'Przyciemniane \n szyby',
+                                  text: 'Przyciemniane\nszyby',
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontFamily: 'Montserrat')))

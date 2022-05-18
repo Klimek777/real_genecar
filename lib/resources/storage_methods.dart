@@ -22,4 +22,19 @@ class StorageMethods {
     String downloadUrl = await snap.ref.getDownloadURL();
     return downloadUrl;
   }
+
+  Future<String> uploadOfferToStorage(
+      String childName, Uint8List file, bool isPost) async {
+    Reference ref =
+        _storage.ref().child(childName).child(_auth.currentUser!.uid);
+
+    if (isPost) {
+      String id = const Uuid().v1();
+      ref = ref.child(id);
+    }
+    UploadTask uploadTask = ref.putData(file);
+    TaskSnapshot snap = await uploadTask;
+    String downloadUrl = await snap.ref.getDownloadURL();
+    return downloadUrl;
+  }
 }

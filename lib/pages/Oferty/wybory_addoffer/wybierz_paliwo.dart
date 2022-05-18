@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class WybierzPaliwo extends StatefulWidget {
-  const WybierzPaliwo({Key? key}) : super(key: key);
+  final Function(String) onChanged;
+  const WybierzPaliwo({Key? key, required this.onChanged}) : super(key: key);
 
   @override
   State<WybierzPaliwo> createState() => _WybierzPaliwoState();
@@ -36,8 +37,9 @@ class _WybierzPaliwoState extends State<WybierzPaliwo> {
               color: Colors.yellow[600],
             ),
             onChanged: (String? newValue) {
+              widget.onChanged(newValue!);
               setState(() {
-                dropdownValue = newValue!;
+                dropdownValue = newValue;
               });
             },
             items: <String>[
