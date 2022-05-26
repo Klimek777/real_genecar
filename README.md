@@ -47,7 +47,6 @@ Project is: _in progress_.
 
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
 
 Room for improvement:
 - Quicker loads of photos from database
@@ -56,12 +55,6 @@ To do:
 - Create in app chat system
 - Create services search based on localization
 
-
-## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
 
 
 ## Contact
