@@ -150,10 +150,12 @@ class _AddOfferState extends State<AddOffer> {
                               onChanged: (String value) {
                                 _markValue = value;
                                 setState(() {});
-                                getModels(_markValue).then((value) {
-                                  modelsList = value;
-                                  setState(() {});
-                                });
+                                if (_markValue != 'Wybierz') {
+                                  getModels(_markValue).then((value) {
+                                    modelsList = value;
+                                    setState(() {});
+                                  });
+                                }
                               },
                             ),
                             WybierzRok(
@@ -199,11 +201,13 @@ class _AddOfferState extends State<AddOffer> {
                             onChanged: (String value) {
                               _modelValue = value;
                               setState(() {});
-                              getGenerations(_markValue, _modelValue)
-                                  .then((value) {
-                                generationsList = value;
-                                setState(() {});
-                              });
+                              if (_modelValue != 'Wybierz') {
+                                getGenerations(_markValue, _modelValue)
+                                    .then((value) {
+                                  generationsList = value;
+                                  setState(() {});
+                                });
+                              }
                             },
                             models: modelsList,
                           ),
