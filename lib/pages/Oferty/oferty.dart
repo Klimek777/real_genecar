@@ -50,6 +50,7 @@ class _OfertyState extends State<Oferty> {
                 child: RichText(
                   text: TextSpan(
                       style: TextStyle(
+                          fontFamily: 'Montserrat',
                           fontSize: 20,
                           letterSpacing: 2,
                           color: Colors.black,

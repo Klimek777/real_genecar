@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:genecar/pages/ZnajdzAuto/pages/rozpocznij_quiz.dart';
 import 'package:genecar/pages/login_page.dart';
 import 'package:genecar/pages/Blog/blog.dart';
 import 'package:genecar/providers/user_provider.dart';
@@ -104,8 +105,8 @@ class _HomePageState extends State<HomePage> {
               child: TextButton(
                 style: ButtonStyle(splashFactory: NoSplash.splashFactory),
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => Search_car()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => RozpocznijQuiz()));
                 },
                 child: Container(
                   child: Row(

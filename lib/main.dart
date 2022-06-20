@@ -35,6 +35,7 @@ void main() async {
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'Montserrat'),
         home: StreamBuilder(
             stream: FirebaseAuth.instance.authStateChanges(),
